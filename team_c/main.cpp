@@ -27,12 +27,16 @@ int WINAPI WinMain(_In_ HINSTANCE hInssance, _In_opt_ HINSTANCE
 	hPrevInstance, _In_ LPSTR IpCmdLine, _In_ int nCmdShow)
 {
 
-	SetMainWindowText("Drive&Avoid");		//タイトルを設定
+	SetMainWindowText("Mitukeru");		//タイトルを設定
 
 	ChangeWindowMode(TRUE);					//ウィンドウモードで起動
 
 	if (DxLib_Init() == -1)return -1;		//DXライブラリの初期化処理
-
+	
+	SetWindowText("Mitukeru");
+	//SetWindowInitPosition(480, 600);
+	SetGraphMode(1280, 720, 32);
+	
 	SetDrawScreen(DX_SCREEN_BACK);			//描画先画面を裏にする
 	SetColor();
 	while (ProcessMessage() == 0 && g_GameState != 99 && !input.Buttons[XINPUT_BUTTON_BACK]) {
@@ -48,7 +52,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInssance, _In_opt_ HINSTANCE
 			title.DrawTitle();		//ゲームタイトル描画処理
 			break;
 		case 1:
-			GameInit();				//ゲーム初期処理
+			//GameInit();				//ゲーム初期処理
 			break;
 		case 2:
 			help.DrawHelp();				//ゲームヘルプ描画処理
@@ -57,7 +61,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInssance, _In_opt_ HINSTANCE
 			end.DrawEnd();				//ゲームエンド描画処理
 			break;
 		case 4:
-			GameMain();				//ゲームメイン処理
+			//GameMain();				//ゲームメイン処理
 			break;
 		}
 		ScreenFlip();	//裏画面の内容を表画面に反映
@@ -88,15 +92,9 @@ void SetColor() {
 	return;
 }
 
-void GameInit(void) {
-	
-}
+//void GameInit(void) {}
 
 /******************************************
 *ゲームメイン
 ******************************************/
-void GameMain(void)
-{
-	
-
-}
+//void GameMain(void){}
