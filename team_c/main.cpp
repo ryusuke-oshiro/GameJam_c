@@ -1,4 +1,7 @@
 #include "DxLib.h"
+#include "TITLE.h"
+#include "HELP.h"
+#include "END.h"
 #define _USE_MATH_DEFINES
 #include<math.h>
 /******************************************************
