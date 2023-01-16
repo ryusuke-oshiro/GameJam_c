@@ -52,10 +52,10 @@ int WINAPI WinMain(_In_ HINSTANCE hInssance, _In_opt_ HINSTANCE
 			title.DrawTitle();		//ゲームタイトル描画処理
 			break;
 		case 1:
-			//GameInit();				//ゲーム初期処理
+			help.DrawHelp();				//ゲームヘルプ描画処理
 			break;
 		case 2:
-			help.DrawHelp();				//ゲームヘルプ描画処理
+			//GameInit();				//ゲーム初期処理
 			break;
 		case 3:
 			end.DrawEnd();				//ゲームエンド描画処理

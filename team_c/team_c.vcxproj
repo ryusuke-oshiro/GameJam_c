@@ -157,6 +157,7 @@
     <ClCompile Include="TITLE.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Common.h" />
     <ClInclude Include="END.h" />
     <ClInclude Include="HELP.h" />
     <ClInclude Include="TITLE.h" />
