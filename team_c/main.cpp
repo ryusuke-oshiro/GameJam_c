@@ -92,7 +92,10 @@ void SetColor() {
 	return;
 }
 
-//void GameInit(void) {}
+void GameInit(void) {
+	int g_Score = 0;
+	int StageLevel = 1;
+}
 
 /******************************************
 *ƒQ[ƒ€ƒƒCƒ“
