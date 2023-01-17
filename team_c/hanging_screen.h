@@ -9,9 +9,12 @@ public:
 	int Pos_y;
 	int fhase_flg;
 	int Count;
-	
+	int DispLevelflg;
 public:
 	hanging_screen();
 	void DrawCurtain();
+	int Get_DispLevelflg() {
+		return DispLevelflg;
+	}
 };
 extern hanging_screen hs;
