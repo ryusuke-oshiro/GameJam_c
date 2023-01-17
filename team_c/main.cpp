@@ -83,7 +83,7 @@ void FpsTimeFanction() {
 	else
 		FpsTime_i++;//現在何周目かカウント
 	if (Fps != 0)
-		DrawFormatString(565, 460, color_white, "FPS %.1f", Fps); //fpsを表示
+		DrawFormatString(10, 10, color_white, "FPS %.1f", Fps); //fpsを表示
 	return;
 }
 
