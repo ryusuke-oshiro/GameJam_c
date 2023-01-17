@@ -2,6 +2,7 @@
 #include "TITLE.h"
 #include "HELP.h"
 #include "END.h"
+#include"GAMEMAIN.h"
 #define _USE_MATH_DEFINES
 #include<math.h>
 /******************************************************
@@ -20,6 +21,7 @@ int color_white;
 
 void FpsTimeFanction();
 void SetColor();
+void GameInit();
 /****************************************************
 *プログラムの開始
 ******************************************************/
@@ -55,13 +57,13 @@ int WINAPI WinMain(_In_ HINSTANCE hInssance, _In_opt_ HINSTANCE
 			help.DrawHelp();				//ゲームヘルプ描画処理
 			break;
 		case 2:
-			//GameInit();				//ゲーム初期処理
+			GameInit();				//ゲーム初期処理
 			break;
 		case 3:
 			end.DrawEnd();				//ゲームエンド描画処理
 			break;
 		case 4:
-			//GameMain();				//ゲームメイン処理
+			gamemain.GameMain();				//ゲームメイン処理
 			break;
 		}
 		ScreenFlip();	//裏画面の内容を表画面に反映
@@ -83,7 +85,7 @@ void FpsTimeFanction() {
 	else
 		FpsTime_i++;//現在何周目かカウント
 	if (Fps != 0)
-		DrawFormatString(565, 460, color_white, "FPS %.1f", Fps); //fpsを表示
+		DrawFormatString(1200, 700, color_white, "FPS %.1f", Fps); //fpsを表示
 	return;
 }
 
@@ -93,8 +95,9 @@ void SetColor() {
 }
 
 void GameInit(void) {
-	int g_Score = 0;
-	int StageLevel = 1;
+	/*int g_Score = 0;
+	int StageLevel = 1;*/
+	g_GameState = 4;
 }
 
 /******************************************

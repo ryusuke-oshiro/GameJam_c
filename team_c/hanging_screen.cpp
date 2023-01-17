@@ -12,7 +12,8 @@ hanging_screen::hanging_screen() {
 void hanging_screen::DrawCurtain() {
 	if (gamemain.Get_level() == 0) {
 		Count++;
-		DrawFormatString(Pos_x, Pos_y, 0xffffff, "›‚ğ’T‚»‚¤");	//”’•¶š
+		SetFontSize(24);
+		DrawFormatString(Pos_x, Pos_y, 0xffffff, "›‚ğ’T‚»‚¤ phase:1");	//”’•¶š
 
 		if (120 < Count) {
 			if (gamemain.DownCurtain() == true) {
@@ -20,6 +21,8 @@ void hanging_screen::DrawCurtain() {
 			}
 		}
 		if (input.Buttons[12] == 1 && fhase_flg == true) {
+			Count = 0;
+			fhase_flg = FALSE;
 			gamemain.Set_phase(1);
 		}
 	}

@@ -7,6 +7,7 @@ GAMEMAIN::GAMEMAIN() {
 	phase = 0;
 	CPos_x = 0;
 	CPos_y = 0;
+	Curtain_flg = FALSE;
 }
 
 void GAMEMAIN::GameMain() {
@@ -15,7 +16,6 @@ void GAMEMAIN::GameMain() {
 			hs.DrawCurtain();	//êÇÇÍñã
 			break;
 		case 1:
-			UpCurtain();
 			si.DrawImage();		//ï\é¶
 			break;
 		case 2:
@@ -27,7 +27,7 @@ void GAMEMAIN::GameMain() {
 			break;
 	}
 	DrawBox(0, 0, 1280, CPos_y, 0xffffff, true);
-	DrawFormatString(640, 360, 0x000000, "GameMain::phase0");	//îíï«Å@çïï∂éö
+	DrawFormatString(640, 360, 0x000000, "Curtain");	//îíï«Å@çïï∂éö
 }
 
 int GAMEMAIN::DownCurtain() {

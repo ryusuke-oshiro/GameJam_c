@@ -4,15 +4,24 @@ select_number sn;
 
 select_number::select_number() {
 	Count = 0;
+	number = 0;
+	answer = 0;
 }
 
 void select_number::DrawSN() {
 	Count++;
 
-	SetFontSize(50);
-	DrawFormatString(640, 360, 0xffffff, "GameMain::phase3");
+	//SetFontSize(50);
+	DrawFormatString(640, 360, 0xffffff, "GameMain::”‚ğ‘I‚Ô");
 
-	if (60 < Count) {
-		gamemain.Set_phase(3);
+
+	if (300 < Count || input.Buttons[12] == 1) {
+		if (number == si.Get_Answer()) {		//³‰ğ‚¾‚Á‚½ê‡
+			si.Set_Level(si.Get_Level() + 1);
+			gamemain.Set_phase(3);
+		}
+		else {									//ŠÔˆá‚¢‚¾‚Á‚½ê‡
+			gamemain.Set_phase(3);
+		}
 	}
 }

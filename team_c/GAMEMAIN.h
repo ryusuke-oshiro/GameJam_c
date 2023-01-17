@@ -11,6 +11,7 @@ public:
 	int CPos_x;
 	int CPos_y;
 	int UpDownCount;
+	int Curtain_flg;
 public:
 	GAMEMAIN();
 	int UpCurtain();
@@ -19,6 +20,12 @@ public:
 	int Get_phase();
 	void Set_level(int n);
 	int Get_level();
+	void Set_Cflg(int n) {
+		Curtain_flg = n;
+	}
+	int Get_Cflg() {
+		return Curtain_flg;
+	}
 	void GameMain();
 };
 extern GAMEMAIN gamemain;
