@@ -7,7 +7,6 @@
 class GAMEMAIN {
 public:
 	int phase;
-	int level;
 	int CPos_x;
 	int CPos_y;
 	int UpDownCount;
@@ -18,8 +17,6 @@ public:
 	int DownCurtain();
 	void Set_phase(int n);
 	int Get_phase();
-	void Set_level(int n);
-	int Get_level();
 	void Set_Cflg(int n) {
 		Curtain_flg = n;
 	}

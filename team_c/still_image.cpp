@@ -8,7 +8,7 @@ still_image si;
 still_image::still_image() {
 	Count = 0;
 	Answer = 0;
-	Level = 0;
+	Level = 1;
 	DispAllCount = 0;
 	DispTargetCount = 0;
 	/*--------‚±‚±‚É‰æ‘œ‚ğƒ[ƒh‚·‚é-------*/
@@ -47,6 +47,7 @@ void still_image::DrawImage() {
 	
 	if (360 < Count) {
 		Count = 0;
+		//Answer = DispTargetCount;
 		gamemain.Set_phase(2);
 	}
 }
@@ -95,13 +96,15 @@ void still_image::Set_DispCount(int n) {
 		DispAllCount = 30;
 		DispTargetCount = rand() % MAX_TARGET_COUNT+1;
 		break;
+	default:
+		break;
 	}
 
 	for (int i = 0; i < DispTargetCount; i++) {		//’T‚·‘ÎÛ‚Ì•\¦À•W‚ğ‚«‚ß‚é
 		DispTargetPos[i][0] = rand() % 880 + 200;	//X::200`1080
 		DispTargetPos[i][1] = rand() % 370 + 300;	//Y::300`670
 		int a = rand() % 2;
-		if (a = 0) {
+		if (a == 0) {
 			DispTargetPos[i][2] = true;
 		}
 		else {
@@ -112,7 +115,7 @@ void still_image::Set_DispCount(int n) {
 		DispElsePos[i][0] = rand() % 880 + 200;	//200`1080
 		DispElsePos[i][1] = rand() % 370 + 300;	//300`670
 		int a = rand() % 2;
-		if (a = 0) {
+		if (a == 0) {
 			DispElsePos[i][2] = true;
 		}
 		else {

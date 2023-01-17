@@ -18,9 +18,11 @@ void select_number::DrawSN() {
 	if (300 < Count || input.Buttons[12] == 1) {
 		if (number == si.Get_Answer()) {		//³‰ð‚¾‚Á‚½ê‡
 			si.Set_Level(si.Get_Level() + 1);
+			Count = 0;
 			gamemain.Set_phase(0);
 		}
 		else {									//ŠÔˆá‚¢‚¾‚Á‚½ê‡
+			Count = 0;
 			gamemain.Set_phase(3);
 		}
 	}

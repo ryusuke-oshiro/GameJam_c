@@ -10,6 +10,8 @@ public:
 	int fhase_flg;
 	int Count;
 	int DispLevelflg;
+	int levelup_count;
+	int flg;
 public:
 	hanging_screen();
 	void DrawCurtain();

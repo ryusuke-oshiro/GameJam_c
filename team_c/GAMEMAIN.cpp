@@ -3,7 +3,6 @@
 GAMEMAIN gamemain;
 
 GAMEMAIN::GAMEMAIN() {
-	level = 1;
 	phase = 0;
 	UpDownCount = 0;
 	CPos_x = 0;
@@ -30,8 +29,8 @@ void GAMEMAIN::GameMain() {
 	DrawBox(0, 0, 1280, CPos_y, 0xffffff, true);
 	DrawFormatString(640, 360, 0x000000, "Curtain");	//白壁　黒文字
 	if (hs.Get_DispLevelflg() == TRUE) {
-		DrawFormatString(640, 400, 0x000000, "レベル[ %d ]", Get_level());
-		DrawFormatString(640, 430, 0x000000, "Aでスタート！");
+		DrawFormatString(640, 400, 0xff0000, "レベル[ %d ]", si.Get_Level());
+		DrawFormatString(640, 430, 0xff0000, "Aでスタート！");
 	}
 }
 
@@ -60,10 +59,3 @@ int GAMEMAIN::Get_phase() {
 	return phase;
 }
 
-void GAMEMAIN::Set_level(int n) {
-	level = n;
-}
-
-int GAMEMAIN::Get_level() {
-	return level;
-}
