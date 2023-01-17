@@ -14,23 +14,24 @@ void select_number::DrawSN() {
 
 	//SetFontSize(50);
 	DrawFormatString(640, 360, 0xffffff, "GameMain::”‚ğ‘I‚Ô");	//‚±‚±
+	//printf("%d\n", number % 10);//1‚ÌˆÊ
+	SetFontSize(30);
+	DrawFormatString(640, 460, 0xfff, "00", number);
 
-	int Count = 00;
-	printf("%d", Count);
+	if (input.Buttons[12] == 8 ) {
 
-	if (input.Buttons[12] == 8) {
-
-		Count++;
-		if (29 < Count) {
-			Count = 0;
+		number++;
+		if (5 <= number%10) {
+			number--;
 		}
-
+		
 	}
+
 	if (input.Buttons[12] == 5) {
 
-		Count--;
-		if (29 < Count) {
-			Count = 0;
+		number--;
+		if (0 <= number % 10) {
+			number++;
 		}
 
 	}
