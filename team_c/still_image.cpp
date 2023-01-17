@@ -18,11 +18,8 @@ void still_image::DrawImage() {
 		gamemain.DownCurtain();
 	}
 
-
 	//SetFontSize(50);
 	DrawFormatString(640, 360, 0xffffff, "GameMain::探す画像");	//ここにランダムな数の対象を配置した画像を置く
-
-	
 	
 	if (360 < Count) {
 		Count = 0;
