@@ -12,13 +12,13 @@ void select_number::DrawSN() {
 	Count++;
 
 	//SetFontSize(50);
-	DrawFormatString(640, 360, 0xffffff, "GameMain::”‚ğ‘I‚Ô");
+	DrawFormatString(640, 360, 0x00ff00, "GameMain::”‚ğ‘I‚Ô");
 
 
 	if (300 < Count || input.Buttons[12] == 1) {
 		if (number == si.Get_Answer()) {		//³‰ğ‚¾‚Á‚½ê‡
 			si.Set_Level(si.Get_Level() + 1);
-			gamemain.Set_phase(3);
+			gamemain.Set_phase(0);
 		}
 		else {									//ŠÔˆá‚¢‚¾‚Á‚½ê‡
 			gamemain.Set_phase(3);

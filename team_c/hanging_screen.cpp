@@ -23,6 +23,7 @@ void hanging_screen::DrawCurtain() {
 		if (input.Buttons[12] == 1 && fhase_flg == true) {
 			Count = 0;
 			fhase_flg = FALSE;
+			si.Set_DispCount(gamemain.Get_level());	//ステージレベルから表示個数をきめる
 			gamemain.Set_phase(1);
 		}
 	}
