@@ -4,11 +4,13 @@
 HELP help;
 
 HELP::HELP() {
-
+	
 }
 
 void HELP::DrawHelp() {
-	
+	if (input.Buttons[12] == 0) {
+		Button_flg = FALSE;
+	}
 	SetFontSize(70);
 	DrawString(20, 40, "ヘルプ", 0xffffff, 0);
 	SetFontSize(40);
@@ -19,7 +21,8 @@ void HELP::DrawHelp() {
 	SetFontSize(30);
 	DrawString(430, 650, "--- Aを押してタイトルへ戻る ---", 0xffffff, 0);
 
-	if (input.Buttons[12] == 1) {
+	if (input.Buttons[12] == 1 && Button_flg == FALSE) {
+		Button_flg = TRUE;
 		g_GameState = 0;
 	}
 }
