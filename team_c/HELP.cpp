@@ -11,17 +11,19 @@ void HELP::DrawHelp() {
 	if (input.Buttons[12] == 0) {
 		Button_flg = FALSE;
 	}
-	SetFontSize(70);
-	DrawString(20, 40, "ƒwƒ‹ƒv", 0xffffff, 0);
-	SetFontSize(40);
-	DrawString(30, 150, "‚±‚ê‚Í‘ÎÛ‚Ìƒ^[ƒQƒbƒg‚ª‚¢‚­‚Â‰æ–Êã‚É‚ ‚é‚Ì‚©‚ð\nŒ©‚Â‚¯‚éƒQ[ƒ€‚Å‚·", 0xffffff, 0);
-	DrawString(30, 235, "³‰ð‚·‚é‚ÆŽŸ‚ÌƒXƒe[ƒW‚Éi‚ß‚Ü‚·", 0xffffff, 0);
-	DrawString(30, 280, "ŠÔˆá‚¦‚é‚ÆƒQ[ƒ€ƒI[ƒo[‚Å‚·", 0xff0000, 0);
 
-	DrawString(20, 400, "‘€ìà–¾", 0xffffff, 0);	
+	SetFontSize(70);
+	DrawString(20, 40, "ï¿½wï¿½ï¿½ï¿½v", 0xffffff, 0);
+	SetFontSize(40);
+	DrawString(30, 150, "ï¿½ï¿½ï¿½ï¿½Í‘ÎÛ‚Ìƒ^ï¿½[ï¿½Qï¿½bï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â‰ï¿½Êï¿½É‚ï¿½ï¿½ï¿½Ì‚ï¿½ï¿½ï¿½\nï¿½ï¿½ï¿½Â‚ï¿½ï¿½ï¿½Qï¿½[ï¿½ï¿½ï¿½Å‚ï¿½", 0xffffff, 0);
+	DrawString(30, 235, "ï¿½ï¿½ï¿½ï¿½ï¿½ÆŽï¿½ï¿½ÌƒXï¿½eï¿½[ï¿½Wï¿½Éiï¿½ß‚Ü‚ï¿½", 0xffffff, 0);
+	DrawString(30, 280, "ï¿½Ôˆá‚¦ï¿½ï¿½ÆƒQï¿½[ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[ï¿½Å‚ï¿½", 0xff0000, 0);
+
+	DrawString(20, 400, "ï¿½ï¿½ï¿½ï¿½ï¿½", 0xffffff, 0);	
 
 	SetFontSize(30);
-	DrawString(430, 680, "--- A‚ð‰Ÿ‚µ‚Äƒ^ƒCƒgƒ‹‚Ö–ß‚é ---", 0xffffff, 0);
+	DrawString(430, 680, "--- Aï¿½ï¿½ï¿½ï¿½Äƒ^ï¿½Cï¿½gï¿½ï¿½ï¿½Ö–ß‚ï¿½ ---", 0xffffff, 0);
+
 
 	if (input.Buttons[12] == 1 && Button_flg == FALSE) {
 		Button_flg = TRUE;
