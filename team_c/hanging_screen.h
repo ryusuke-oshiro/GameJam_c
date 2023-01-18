@@ -11,6 +11,7 @@ public:
 	int Count;
 	int DispLevelflg;
 	int levelup_count;
+	int Circle_flg;
 	int flg;
 public:
 	hanging_screen();

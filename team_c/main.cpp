@@ -22,6 +22,8 @@ int color_white;
 void FpsTimeFanction();
 void SetColor();
 void GameInit();
+int LoadImages();
+int LoadSounds();
 /****************************************************
 *プログラムの開始
 ******************************************************/
@@ -41,6 +43,11 @@ int WINAPI WinMain(_In_ HINSTANCE hInssance, _In_opt_ HINSTANCE
 	
 	SetDrawScreen(DX_SCREEN_BACK);			//描画先画面を裏にする
 	SetColor();
+
+	if (LoadImages() == -1)return -1;		//画像読み込み関数を呼び出し
+
+	if (LoadSounds() == -1)return -1;		//サウンド読み込み関数を呼び出し
+	
 	while (ProcessMessage() == 0 && g_GameState != 99 && !input.Buttons[XINPUT_BUTTON_BACK]) {
 		RefreshTime = GetNowCount();
 
@@ -100,7 +107,20 @@ void GameInit(void) {
 	g_GameState = 4;
 }
 
-/******************************************
-*ゲームメイン
-******************************************/
-//void GameMain(void){}
+int LoadImages()
+{
+	if ((si.BackGround_img = LoadGraph("images/BackGround01.png")) == -1)return -1;
+	if ((si.DispImage[0] = LoadGraph("images/chara01.png")) == -1) return -1;
+	if ((si.DispImage[1] = LoadGraph("images/chara02.png")) == -1) return -1;
+	if ((si.DispImage[2] = LoadGraph("images/chara03.png")) == -1) return -1;
+	if ((si.DispImage[3] = LoadGraph("images/chara04.png")) == -1) return -1;
+	if ((si.DispImage[4] = LoadGraph("images/chara05.png")) == -1) return -1;
+	if ((si.DispImage[5] = LoadGraph("images/chara06.png")) == -1) return -1;
+
+	return 0;
+}
+
+int LoadSounds()
+{
+	return 0;
+}

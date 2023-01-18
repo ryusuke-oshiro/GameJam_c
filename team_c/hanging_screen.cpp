@@ -1,5 +1,7 @@
 #include"hanging_screen.h"
 
+#define CHARA_SIZE 100
+
 hanging_screen hs;
 
 hanging_screen::hanging_screen() {
@@ -8,15 +10,16 @@ hanging_screen::hanging_screen() {
 	fhase_flg = FALSE;
 	DispLevelflg = FALSE;
 	Count = 0;
-	levelup_count = 0;
+	levelup_count = 30;
 	flg = FALSE;
+	Circle_flg = TRUE;
 }
 
 void hanging_screen::DrawCurtain() {
 	if (si.Get_Level() == 1) {
 		Count++;
 		SetFontSize(24);
-		DrawFormatString(Pos_x, Pos_y, 0xffffff, "[0]を探そう phase:1");	//白文字
+		DrawFormatString(Pos_x, Pos_y, 0xffffff, "[ニワトリ]を探そう ！");	//白文字
 
 		if (120 < Count) {
 			if (gamemain.DownCurtain() == true) {
@@ -32,37 +35,70 @@ void hanging_screen::DrawCurtain() {
 			gamemain.Set_phase(1);
 		}
 	}
-	else {
-		levelup_count++; 
+	if(si.Get_Level() != 1){
 		SetFontSize(24);
-		DrawFormatString(Pos_x, Pos_y, 0xffffff, "レベルアップ！ phase:1");	//白文字
-
-		if (120 < levelup_count) {
-			if (gamemain.UpCurtain() == true) {
-				levelup_count = 0;
-				flg = TRUE;
-			}
+		
+		
+		DrawGraph(0, 0, si.BackGround_img, FALSE);
+		for (int i = 0; i < si.DispTargetCount; i++) {
+			//DrawGraph(DispTargetPos[i][0], DispTargetPos[i][1], DispImage[0], TRUE);
+			DrawExtendGraph(si.DispTargetPos[i][0] - (CHARA_SIZE / 2), si.DispTargetPos[i][1] - (CHARA_SIZE / 2), si.DispTargetPos[i][0] + (CHARA_SIZE / 2), si.DispTargetPos[i][1] + (CHARA_SIZE / 2), si.DispImage[0], TRUE);
 		}
-
-		if (flg == TRUE) {
-			Count++;
-			if (120 < Count) {
-				if (gamemain.DownCurtain() == true) {
-					DispLevelflg = TRUE;
-					fhase_flg = true;
-				}
-			}
-			if (input.Buttons[12] == 1 && fhase_flg == true && flg == TRUE) {
-				Count = 0;
-				DispLevelflg = FALSE;
-				fhase_flg = FALSE;
-				flg = FALSE;
-				si.Set_DispCount(si.Get_Level());	//ステージレベルから表示個数をきめる
-				gamemain.Set_phase(1);
+		for (int j = 0; j < si.DispAllCount - si.DispTargetCount; j++) {
+			//DrawGraph(DispElsePos[j][0], DispElsePos[j][1], DispImage[DispElsePos[j][3]], TRUE);
+			DrawExtendGraph(si.DispElsePos[j][0] - (CHARA_SIZE / 2), si.DispElsePos[j][1] - (CHARA_SIZE / 2), si.DispElsePos[j][0] + (CHARA_SIZE / 2), si.DispElsePos[j][1] + (CHARA_SIZE / 2), si.DispImage[si.DispElsePos[j][3]], TRUE);
+			//DrawFormatString(DispElsePos[j][0], DispElsePos[j][1], 0x00ff00, "%d", DispImage[DispElsePos[j][3]]);
+		}
+		if (Circle_flg == TRUE) {
+			for (int i = 0; i < si.DispTargetCount; i++) {
+				DrawCircle(si.DispTargetPos[i][0], si.DispTargetPos[i][1], CHARA_SIZE / 2, 0xff0000, FALSE, TRUE);
 			}
 		}
 
 		
+
+		
+		
+
+		if (flg == FALSE) {
+			if (gamemain.UpCurtain() == true) {
+				levelup_count++;
+				if (levelup_count % 20 == 0) {
+					Circle_flg = !Circle_flg;
+				}
+				if (120 < levelup_count) {
+					levelup_count = 0;
+					flg = TRUE;
+				}
+			}
+		}
+
+		if (sn.Get_answer() == TRUE) {
+			if (flg == TRUE) {
+				if (gamemain.DownCurtain() == true) {
+					DispLevelflg = TRUE;
+					fhase_flg = true;
+				}
+				if (input.Buttons[12] == 1 && fhase_flg == true) {
+					DispLevelflg = FALSE;
+					fhase_flg = FALSE;
+					flg = FALSE;
+					si.Set_DispCount(si.Get_Level());	//ステージレベルから表示個数をきめる
+					gamemain.Set_phase(1);
+				}
+			}
+		}
+		if(sn.Get_answer()==FALSE){
+			if (flg == TRUE) {
+				if (gamemain.DownCurtain() == true) {
+					fhase_flg = true;
+				}
+				if (input.Buttons[12] == 1 && fhase_flg == true) {
+					fhase_flg = FALSE;
+					flg = FALSE;
+					gamemain.Set_phase(3);
+				}
+			}
+		}
 	}
-	
 }
