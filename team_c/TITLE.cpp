@@ -8,8 +8,6 @@ TITLE::TITLE() {
 }
 
 void TITLE::DrawTitle() {
-
-
 	static int menuNo = 0;
 	int posY;
 	 

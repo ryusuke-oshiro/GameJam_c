@@ -9,10 +9,12 @@
 *変数宣言
 *******************************************************/
 XINPUT_STATE input;
+
 int g_GameState = 0;	//ゲームモード
 
 int Button_flg = FALSE; 
 int Time = 0;     //待ち時間
+
 int StartTime;
 int NowTime = 0;
 int RefreshTime;
