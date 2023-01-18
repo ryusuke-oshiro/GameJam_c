@@ -13,12 +13,14 @@ still_image::still_image() {
 	DispTargetCount = 0;
 	/*--------ここに画像をロードする-------*/
 	/*LoadImage()*/
-	DispImage[TARGET] = 0;
-	DispImage[1] = 1;
-	DispImage[2] = 2;
-	DispImage[3] = 3;
-	DispImage[4] = 4;
-	DispImage[5] = 5;
+	//Apple_Img[0] = LoadGraph("images/RedApple.png")
+	DispImage[TARGET] = LoadGraph("images/chara01.png");
+	DispImage[1] = LoadGraph("images/chara02.png");
+	DispImage[2] = LoadGraph("images/chara03.png");
+	DispImage[3] = LoadGraph("images/chara04.png");
+	DispImage[4] = LoadGraph("images/chara05.png");
+	DispImage[5] = LoadGraph("images/chara06.png");
+	BackGround_img = LoadGraph("images/BackGround01.png");
 	/*--------ここに画像をロードする-------*/
 	InitPos();
 }
@@ -35,14 +37,17 @@ void still_image::DrawImage() {
 	if (240 < Count) {
 		gamemain.DownCurtain();
 	}
-	DrawBox(170, 270, 1110, 700, 0xffffff, false);
+	DrawGraph(0, 0, BackGround_img, FALSE);
+	//DrawBox(170, 270, 1110, 700, 0xffffff, false);
 	//SetFontSize(50);
 	//DrawFormatString(640, 360, 0xffffff, "GameMain::探す画像");	//ここにランダムな数の対象を配置した画像を置く
 	for (int i = 0; i < DispTargetCount; i++) {
-		DrawFormatString(DispTargetPos[i][0], DispTargetPos[i][1], 0xff0000, "%d", DispImage[0]);
+		DrawGraph(DispTargetPos[i][0], DispTargetPos[i][1], DispImage[0], FALSE);
+		//DrawFormatString(DispTargetPos[i][0], DispTargetPos[i][1], 0xff0000, "%d", DispImage[0]);
 	}
 	for (int j = 0; j < DispAllCount - DispTargetCount; j++) {
-		DrawFormatString(DispElsePos[j][0], DispElsePos[j][1], 0x00ff00, "%d", DispImage[DispElsePos[j][3]]);
+		DrawGraph(DispElsePos[j][0], DispElsePos[j][1], DispImage[DispElsePos[j][3]], FALSE);
+		//DrawFormatString(DispElsePos[j][0], DispElsePos[j][1], 0x00ff00, "%d", DispImage[DispElsePos[j][3]]);
 	}
 	
 	if (360 < Count) {
