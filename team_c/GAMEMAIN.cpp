@@ -35,11 +35,9 @@ void GAMEMAIN::GameMain() {
 		default:
 			break;
 	}
-	//DrawBox(0, 0, 1280, CPos_y, 0xffffff, true);	//カーテン
 
 	DrawGraph(0, -744 + CPos_y, Curtain_image, TRUE);
-	
-	//DrawFormatString(640, 360, 0x000000, "Curtain");	//白壁　黒文字
+
 	if (hs.Get_DispLevelflg() == TRUE && si.Get_Level() <= 10) {
 		DrawFormatString(640, 400, 0xff0000, "レベル[ %d ]", si.Get_Level());
 		DrawFormatString(640, 430, 0xff0000, "Aでスタート！");

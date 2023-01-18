@@ -60,7 +60,7 @@ void hanging_screen::DrawCurtain() {
 			}
 			if (Circle_flg == TRUE) {
 				for (int i = 0; i < si.DispTargetCount; i++) {
-					DrawCircle(si.DispTargetPos[i][0], si.DispTargetPos[i][1], CHARA_SIZE / 2, 0xff0000, FALSE, TRUE);
+					DrawCircle(si.DispTargetPos[i][0], si.DispTargetPos[i][1], CHARA_SIZE / 2, 0xff0000, FALSE,TRUE);
 				}
 			}
 
@@ -95,13 +95,10 @@ void hanging_screen::DrawCurtain() {
 		
 		DrawGraph(0, 0, si.BackGround_img, FALSE);
 		for (int i = 0; i < si.DispTargetCount; i++) {
-			//DrawGraph(DispTargetPos[i][0], DispTargetPos[i][1], DispImage[0], TRUE);
 			DrawExtendGraph(si.DispTargetPos[i][0] - (CHARA_SIZE / 2), si.DispTargetPos[i][1] - (CHARA_SIZE / 2), si.DispTargetPos[i][0] + (CHARA_SIZE / 2), si.DispTargetPos[i][1] + (CHARA_SIZE / 2), si.DispImage[0], TRUE);
 		}
 		for (int j = 0; j < si.DispAllCount - si.DispTargetCount; j++) {
-			//DrawGraph(DispElsePos[j][0], DispElsePos[j][1], DispImage[DispElsePos[j][3]], TRUE);
 			DrawExtendGraph(si.DispElsePos[j][0] - (CHARA_SIZE / 2), si.DispElsePos[j][1] - (CHARA_SIZE / 2), si.DispElsePos[j][0] + (CHARA_SIZE / 2), si.DispElsePos[j][1] + (CHARA_SIZE / 2), si.DispImage[si.DispElsePos[j][3]], TRUE);
-			//DrawFormatString(DispElsePos[j][0], DispElsePos[j][1], 0x00ff00, "%d", DispImage[DispElsePos[j][3]]);
 		}
 		if (Circle_flg == TRUE) {
 			for (int i = 0; i < si.DispTargetCount; i++) {
