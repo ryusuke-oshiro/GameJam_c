@@ -10,6 +10,7 @@
 XINPUT_STATE input;
 int g_GameState = 0;	//ƒQ[ƒ€ƒ‚[ƒh
 
+int Button_flg = FALSE; 
 int Time = 0;     //‘Ò‚¿ŠÔ
 int StartTime;
 int NowTime = 0;

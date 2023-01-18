@@ -13,19 +13,26 @@ void TITLE::DrawTitle() {
 	int posY;
 	 
 	// メニューカーソルの移動処理
-	if (input.Buttons[1] == 1) {
+	if (input.Buttons[1] == 1 && Button_flg == FALSE) {
+		Button_flg = TRUE;
 		if (++menuNo > 2) menuNo = 0;
 	}
-	if (input.Buttons[0] == 1) {
+	if (input.Buttons[0] == 1 && Button_flg == FALSE) {
+		Button_flg = TRUE;
 		if (--menuNo < 0) menuNo = 2;
 	}
-	
-	if (input.Buttons[12] == 1) {
+	if (input.Buttons[1] == 0 && input.Buttons[0] == 0 && input.Buttons[12] == 0) {
+		Button_flg = FALSE;
+	}
+
+	if (input.Buttons[12] == 1 && Button_flg == FALSE) {
 		switch(menuNo){
 		case 0:
+			
 			g_GameState = 4;		// メイン画面へ
 			break;
 		case 1:
+			Button_flg = TRUE;
 			g_GameState = 1;		// ヘルプ画面へ
 			break;
 		case 2:
