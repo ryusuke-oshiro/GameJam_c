@@ -102,8 +102,9 @@ void SetColor() {
 }
 
 void GameInit(void) {
-	/*int g_Score = 0;
-	int StageLevel = 1;*/
+	hs.Init();
+	si.Init();
+	sn.Init();
 	g_GameState = 4;
 }
 
@@ -116,7 +117,7 @@ int LoadImages()
 	if ((si.DispImage[3] = LoadGraph("images/chara04.png")) == -1) return -1;
 	if ((si.DispImage[4] = LoadGraph("images/chara05.png")) == -1) return -1;
 	if ((si.DispImage[5] = LoadGraph("images/chara06.png")) == -1) return -1;
-
+	if ((gamemain.Curtain_image = LoadGraph("images/Curtain.png")) == -1)return -1;
 	return 0;
 }
 

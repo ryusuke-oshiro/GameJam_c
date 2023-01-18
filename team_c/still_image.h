@@ -16,6 +16,7 @@ public:
 	int BackGround_img;
 public:
 	still_image();
+	void Init();
 	void DrawImage();
 	void Set_DispCount(int n);
 	void InitPos();

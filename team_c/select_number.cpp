@@ -16,6 +16,20 @@ select_number::select_number() {
 	down = FALSE;
 }
 
+void select_number::Init() {
+	Count = 0;
+	number = 0;
+	answer = TRUE;
+	sn_flg = FALSE;
+	sn_text_flg = FALSE;
+	B_flg = TRUE;
+
+	left = FALSE;
+	right = TRUE;
+	up = FALSE;
+	down = FALSE;
+}
+
 void select_number::DrawSN() {
 	Count++;
 	sn_flg = TRUE;

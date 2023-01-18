@@ -15,6 +15,17 @@ hanging_screen::hanging_screen() {
 	Circle_flg = TRUE;
 }
 
+void hanging_screen::Init() {
+	Pos_x = 640;
+	Pos_y = 360;
+	fhase_flg = FALSE;
+	DispLevelflg = FALSE;
+	Count = 0;
+	levelup_count = 30;
+	flg = FALSE;
+	Circle_flg = TRUE;
+}
+
 void hanging_screen::DrawCurtain() {
 
 	if (si.Get_Level() == 1) {	

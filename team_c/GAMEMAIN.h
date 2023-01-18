@@ -11,6 +11,7 @@ public:
 	int CPos_y;
 	int UpDownCount;
 	int Curtain_flg;
+	int Curtain_image;
 public:
 	GAMEMAIN();
 	int UpCurtain();

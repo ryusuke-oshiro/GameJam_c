@@ -16,9 +16,13 @@ public:
 	int sn_text_flg;
 public:
 	select_number();
+	void Init();
 	void DrawSN();
 	int Get_answer() {
 		return answer;
+	}
+	void Set_answer(int n) {
+		answer = n;
 	}
 	int Get_number() {
 		return number;

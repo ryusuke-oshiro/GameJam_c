@@ -12,6 +12,6 @@ void TITLE::DrawTitle() {
 	DrawFormatString(50, 10, 0x000000, "TITLE");
 	
 	if (input.Buttons[12] == 1) {
-		g_GameState = 4;
+		g_GameState = 2;
 	}
 }

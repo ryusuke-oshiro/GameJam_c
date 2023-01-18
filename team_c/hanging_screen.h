@@ -15,6 +15,7 @@ public:
 	int flg;
 public:
 	hanging_screen();
+	void Init();
 	void DrawCurtain();
 	int Get_DispLevelflg() {
 		return DispLevelflg;

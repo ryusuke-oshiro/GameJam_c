@@ -24,6 +24,15 @@ still_image::still_image() {
 	InitPos();
 }
 
+void still_image::Init() {
+	Count = 0;
+	Answer = 0;
+	Level = 1;
+	DispAllCount = 0;
+	DispTargetCount = 0;
+	InitPos();
+}
+
 void still_image::DrawImage() {
 	Count++;
 	
