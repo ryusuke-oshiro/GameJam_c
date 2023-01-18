@@ -11,7 +11,7 @@ void TITLE::DrawTitle() {
 	static int menuNo = 0;
 	int posY;
 	 
-	// ���j���[�J�[�\���̈ړ�����
+	
 	if (input.Buttons[1] == 1 && Button_flg == FALSE) {
 		Button_flg = TRUE;
 		if (++menuNo > 2) menuNo = 0;
@@ -28,19 +28,19 @@ void TITLE::DrawTitle() {
 		Button_flg = TRUE;
 		switch(menuNo){
 		case 0:
-			g_GameState = 4;		// ���C����ʂ�
+			g_GameState = 4;	
 			break;
 		case 1:
-			g_GameState = 1;		// �w���v��ʂ�
+			g_GameState = 1;
 			break;
 		case 2:
-			g_GameState = 3;		// �G���h��ʂ�
+			g_GameState = 3;
 			break;
 		}
 
 	}
 
-	// ���j���[�J�[�\���i�O�p�`�j�̕\��
+	
 	posY = menuNo * 100;
 	DrawTriangle(510, 310 + posY, 540, 330 + posY, 510, 350 + posY, 0xffffff, TRUE);
 
@@ -54,5 +54,4 @@ void TITLE::DrawTitle() {
 
 	DrawFormatString(300, 600, 0xffffff, "HIGH SCORE:%d", menuNo);
 
-	//DrawCircle(640, 360, 100, 0xffffff, true);
 }
