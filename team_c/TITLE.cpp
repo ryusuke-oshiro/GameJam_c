@@ -9,10 +9,11 @@ TITLE::TITLE() {
 
 void TITLE::DrawTitle() {
 
+
 	static int menuNo = 0;
 	int posY;
 	 
-	// ƒƒjƒ…[ƒJ[ƒ\ƒ‹‚ÌˆÚ“®ˆ—
+	// ï¿½ï¿½ï¿½jï¿½ï¿½ï¿½[ï¿½Jï¿½[ï¿½\ï¿½ï¿½ï¿½ÌˆÚ“ï¿½ï¿½ï¿½ï¿½ï¿½
 	if (input.Buttons[1] == 1 && Button_flg == FALSE) {
 		Button_flg = TRUE;
 		if (++menuNo > 2) menuNo = 0;
@@ -29,18 +30,19 @@ void TITLE::DrawTitle() {
 		Button_flg = TRUE;
 		switch(menuNo){
 		case 0:
-			g_GameState = 4;		// ƒƒCƒ“‰æ–Ê‚Ö
+			g_GameState = 4;		// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½Ê‚ï¿½
 			break;
 		case 1:
-			g_GameState = 1;		// ƒwƒ‹ƒv‰æ–Ê‚Ö
+			g_GameState = 1;		// ï¿½wï¿½ï¿½ï¿½vï¿½ï¿½Ê‚ï¿½
 			break;
 		case 2:
-			g_GameState = 3;		// ƒGƒ“ƒh‰æ–Ê‚Ö
+			g_GameState = 3;		// ï¿½Gï¿½ï¿½ï¿½hï¿½ï¿½Ê‚ï¿½
 			break;
 		}
+
 	}
 
-	// ƒƒjƒ…[ƒJ[ƒ\ƒ‹iOŠpŒ`j‚Ì•\¦
+	// ï¿½ï¿½ï¿½jï¿½ï¿½ï¿½[ï¿½Jï¿½[ï¿½\ï¿½ï¿½ï¿½iï¿½Oï¿½pï¿½`ï¿½jï¿½Ì•\ï¿½ï¿½
 	posY = menuNo * 100;
 	DrawTriangle(510, 310 + posY, 540, 330 + posY, 510, 350 + posY, 0xffffff, TRUE);
 

@@ -6,6 +6,8 @@ END::END() {
 }
 
 void END::DrawEnd() {
-	DrawCircle(640, 360, 50, 0xffff00, true);
+
+	SetFontSize(100);
+	DrawFormatString(640, 360, 0xffffff, "E N D");
 
 }
