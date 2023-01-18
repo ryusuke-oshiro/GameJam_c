@@ -8,6 +8,15 @@ GAMEMAIN::GAMEMAIN() {
 	CPos_x = 0;
 	CPos_y = 0;
 	Curtain_flg = FALSE;
+	Curtain_image = 0;
+}
+
+void GAMEMAIN::Init() {
+	phase = 0;
+	UpDownCount = 0;
+	CPos_x = 0;
+	CPos_y = 0;
+	Curtain_flg = FALSE;
 }
 
 void GAMEMAIN::GameMain() {
