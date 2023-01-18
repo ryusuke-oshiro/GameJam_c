@@ -1,6 +1,6 @@
 #include"still_image.h"
 
-#define MAX_TARGET_COUNT 4
+#define MAX_TARGET_COUNT 5
 #define TARGET 0
 #define CHARA_SIZE 100
 
@@ -42,6 +42,7 @@ void still_image::DrawImage() {
 	if (210 < Count) {
 		gamemain.DownCurtain();
 	}
+
 	DrawGraph(0, 0, BackGround_img, FALSE);
 	
 	//‚±‚±‚É§ŒÀŽžŠÔ•\Ž¦
