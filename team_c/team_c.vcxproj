@@ -152,14 +152,22 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="END.cpp" />
+    <ClCompile Include="GAMEMAIN.cpp" />
+    <ClCompile Include="hanging_screen.cpp" />
     <ClCompile Include="HELP.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="select_number.cpp" />
+    <ClCompile Include="still_image.cpp" />
     <ClCompile Include="TITLE.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Common.h" />
     <ClInclude Include="END.h" />
+    <ClInclude Include="GAMEMAIN.h" />
+    <ClInclude Include="hanging_screen.h" />
     <ClInclude Include="HELP.h" />
+    <ClInclude Include="select_number.h" />
+    <ClInclude Include="still_image.h" />
     <ClInclude Include="TITLE.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

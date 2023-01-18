@@ -9,8 +9,9 @@ TITLE::TITLE() {
 
 void TITLE::DrawTitle() {
 	DrawCircle(640, 360, 100, 0xffffff, true);
+	DrawFormatString(50, 10, 0x000000, "TITLE");
 	
 	if (input.Buttons[12] == 1) {
-		g_GameState = 1;
+		g_GameState = 4;
 	}
 }
