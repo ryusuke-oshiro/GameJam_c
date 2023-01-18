@@ -142,7 +142,7 @@ void hanging_screen::DrawCurtain() {
 				if (gamemain.DownCurtain() == true) {
 					fhase_flg = true;
 				}
-				if (input.Buttons[12] == 1 && fhase_flg == true) {
+				if (input.Buttons[12] == 1 && fhase_flg == true) {	//ƒ{ƒ^ƒ“‘Ò‚¿
 					fhase_flg = FALSE;
 					flg = FALSE;
 					gamemain.Set_phase(3);

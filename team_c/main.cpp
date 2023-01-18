@@ -102,6 +102,7 @@ void SetColor() {
 }
 
 void GameInit(void) {
+	gamemain.Init();
 	hs.Init();
 	si.Init();
 	sn.Init();

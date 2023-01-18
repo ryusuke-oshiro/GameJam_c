@@ -25,5 +25,6 @@ public:
 		return Curtain_flg;
 	}
 	void GameMain();
+	void Init();
 };
 extern GAMEMAIN gamemain;
