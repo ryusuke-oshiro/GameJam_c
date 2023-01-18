@@ -40,7 +40,7 @@ void GAMEMAIN::GameMain() {
 	DrawGraph(0, -744 + CPos_y, Curtain_image, TRUE);
 	
 	//DrawFormatString(640, 360, 0x000000, "Curtain");	//白壁　黒文字
-	if (hs.Get_DispLevelflg() == TRUE) {
+	if (hs.Get_DispLevelflg() == TRUE && si.Get_Level() <= 10) {
 		DrawFormatString(640, 400, 0xff0000, "レベル[ %d ]", si.Get_Level());
 		DrawFormatString(640, 430, 0xff0000, "Aでスタート！");
 	}
@@ -50,11 +50,16 @@ void GAMEMAIN::GameMain() {
 	}
 	if (sn.Get_sntext_flg() == TRUE) {
 		if (sn.Get_answer() == TRUE) {
-			DrawFormatString(640, 360 - 200, 0xffffff, "レベルアップ！");	//白文字
+			if (si.Get_Level() <= 10) {
+				DrawFormatString(640, 360 - 200, 0xffffff, "レベルアップ！");	//白文字
+			}
 		}
 		if (sn.Get_answer() == FALSE) {
 			DrawFormatString(640, 360 - 200, 0xffffff, "失敗、、、正解は%d", si.Get_Answer());	//白文字
 		}
+	}
+	if (hs.Get_clear_flg() == TRUE) {
+		DrawFormatString(640, 360 - 200, 0xffffff, "全レベルクリア！Aボタンでタイトルに戻ります");	//白文字
 	}
 }
 

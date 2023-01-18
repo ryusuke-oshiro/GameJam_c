@@ -13,6 +13,7 @@ hanging_screen::hanging_screen() {
 	levelup_count = 30;
 	flg = FALSE;
 	Circle_flg = TRUE;
+	Clear_flg = FALSE;
 }
 
 void hanging_screen::Init() {
@@ -127,13 +128,22 @@ void hanging_screen::DrawCurtain() {
 					DispLevelflg = TRUE;
 					fhase_flg = true;
 				}
-				if (input.Buttons[12] == 1 && fhase_flg == true) {
-					DispLevelflg = FALSE;
-					fhase_flg = FALSE;
-					flg = FALSE;
-					sn.Set_st_flg(FALSE);
-					si.Set_DispCount(si.Get_Level());	//ステージレベルから表示個数をきめる
-					gamemain.Set_phase(1);
+				if (10 >= si.Get_Level()) {
+					if (input.Buttons[12] == 1 && fhase_flg == true) {
+						DispLevelflg = FALSE;
+						fhase_flg = FALSE;
+						flg = FALSE;
+						sn.Set_st_flg(FALSE);
+						si.Set_DispCount(si.Get_Level());	//ステージレベルから表示個数をきめる
+						gamemain.Set_phase(1);
+					}
+				}
+				if (10 < si.Get_Level()) {
+					Clear_flg = TRUE;
+					if (input.Buttons[12] == 1 && fhase_flg == true) {
+						Clear_flg = FALSE;
+						gamemain.Set_phase(3);
+					}
 				}
 			}
 		}
