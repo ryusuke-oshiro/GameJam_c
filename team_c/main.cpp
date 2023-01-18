@@ -6,12 +6,13 @@
 #define _USE_MATH_DEFINES
 #include<math.h>
 /******************************************************
-*•Ï”éŒ¾
+*å¤‰æ•°å®£è¨€
 *******************************************************/
 XINPUT_STATE input;
-int g_GameState = 0;	//ƒQ[ƒ€ƒ‚[ƒh
+int g_GameState = 0;	//ã‚²ãƒ¼ãƒ ãƒ¢ãƒ¼ãƒ‰
 
-int Time = 0;     //‘Ò‚¿ŠÔ
+int Button_flg = FALSE; 
+int Time = 0;     //å¾…ã¡æ™‚é–“
 int StartTime;
 int NowTime = 0;
 int RefreshTime;
@@ -25,79 +26,81 @@ void GameInit();
 int LoadImages();
 int LoadSounds();
 /****************************************************
-*ƒvƒƒOƒ‰ƒ€‚ÌŠJn
+*ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã®é–‹å§‹
 ******************************************************/
 int WINAPI WinMain(_In_ HINSTANCE hInssance, _In_opt_ HINSTANCE
 	hPrevInstance, _In_ LPSTR IpCmdLine, _In_ int nCmdShow)
 {
 
-	SetMainWindowText("Mitukeru");		//ƒ^ƒCƒgƒ‹‚ğİ’è
+	SetMainWindowText("Mitukeru");		//ã‚¿ã‚¤ãƒˆãƒ«ã‚’è¨­å®š
 
-	ChangeWindowMode(TRUE);					//ƒEƒBƒ“ƒhƒEƒ‚[ƒh‚Å‹N“®
+	ChangeWindowMode(TRUE);					//ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒ¢ãƒ¼ãƒ‰ã§èµ·å‹•
 
-	if (DxLib_Init() == -1)return -1;		//DXƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šú‰»ˆ—
+	if (DxLib_Init() == -1)return -1;		//DXãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸåŒ–å‡¦ç†
 	
 	SetWindowText("Mitukeru");
 	//SetWindowInitPosition(480, 600);
 	SetGraphMode(1280, 720, 32);
 	
-	SetDrawScreen(DX_SCREEN_BACK);			//•`‰ææ‰æ–Ê‚ğ— ‚É‚·‚é
+	SetDrawScreen(DX_SCREEN_BACK);			//æç”»å…ˆç”»é¢ã‚’è£ã«ã™ã‚‹
 	SetColor();
 
-	if (LoadImages() == -1)return -1;		//‰æ‘œ“Ç‚İ‚İŠÖ”‚ğŒÄ‚Ño‚µ
+	if (LoadImages() == -1)return -1;		//ç”»åƒèª­ã¿è¾¼ã¿é–¢æ•°ã‚’å‘¼ã³å‡ºã—
 
-	if (LoadSounds() == -1)return -1;		//ƒTƒEƒ“ƒh“Ç‚İ‚İŠÖ”‚ğŒÄ‚Ño‚µ
+	if (LoadSounds() == -1)return -1;		//ã‚µã‚¦ãƒ³ãƒ‰èª­ã¿è¾¼ã¿é–¢æ•°ã‚’å‘¼ã³å‡ºã—
 	
 	while (ProcessMessage() == 0 && g_GameState != 99 && !input.Buttons[XINPUT_BUTTON_BACK]) {
 		RefreshTime = GetNowCount();
 
 		GetJoypadXInputState(DX_INPUT_PAD1, &input);
 
-		ClearDrawScreen();			//‰æ–Ê‚Ì‰Šú‰»
+		ClearDrawScreen();			//ç”»é¢ã®åˆæœŸåŒ–
 		FpsTimeFanction();
 
 		switch (g_GameState) {
 		case 0:
-			title.DrawTitle();		//ƒQ[ƒ€ƒ^ƒCƒgƒ‹•`‰æˆ—
+			title.DrawTitle();		//ã‚²ãƒ¼ãƒ ã‚¿ã‚¤ãƒˆãƒ«æç”»å‡¦ç†
 			break;
 		case 1:
-			help.DrawHelp();				//ƒQ[ƒ€ƒwƒ‹ƒv•`‰æˆ—
+			help.DrawHelp();				//ã‚²ãƒ¼ãƒ ãƒ˜ãƒ«ãƒ—æç”»å‡¦ç†
 			break;
 		case 2:
-			GameInit();				//ƒQ[ƒ€‰Šúˆ—
+			GameInit();				//ã‚²ãƒ¼ãƒ åˆæœŸå‡¦ç†
 			break;
 		case 3:
-			end.DrawEnd();				//ƒQ[ƒ€ƒGƒ“ƒh•`‰æˆ—
+			end.DrawEnd();				//ã‚²ãƒ¼ãƒ ã‚¨ãƒ³ãƒ‰æç”»å‡¦ç†
 			break;
 		case 4:
-			gamemain.GameMain();				//ƒQ[ƒ€ƒƒCƒ“ˆ—
+			gamemain.GameMain();				//ã‚²ãƒ¼ãƒ ãƒ¡ã‚¤ãƒ³å‡¦ç†
 			break;
 		}
-		ScreenFlip();	//— ‰æ–Ê‚Ì“à—e‚ğ•\‰æ–Ê‚É”½‰f
+		ScreenFlip();	//è£ç”»é¢ã®å†…å®¹ã‚’è¡¨ç”»é¢ã«åæ˜ 
 		while (GetNowCount() - RefreshTime < 17);
 	}
-	DxLib_End();	//DXƒ‰ƒCƒuƒ‰ƒŠg—p‚ÌI—¹ˆ—
+	DxLib_End();	//DXãƒ©ã‚¤ãƒ–ãƒ©ãƒªä½¿ç”¨ã®çµ‚äº†å‡¦ç†
 
-	return 0;	//ƒ\ƒtƒg‚ÌI—¹
+	return 0;	//ã‚½ãƒ•ãƒˆã®çµ‚äº†
 }
 
 void FpsTimeFanction() {
 	if (FpsTime_i == 0)
-		FpsTime[0] = GetNowCount();               //1ü–Ú‚ÌŠÔæ“¾
+		FpsTime[0] = GetNowCount();               //1å‘¨ç›®ã®æ™‚é–“å–å¾—
 	if (FpsTime_i == 49) {
-		FpsTime[1] = GetNowCount();               //50ü–Ú‚ÌŠÔæ“¾
-		Fps = 1000.0f / ((FpsTime[1] - FpsTime[0]) / 50.0f);//‘ª’è‚µ‚½’l‚©‚çfps‚ğŒvZ
-		FpsTime_i = 0;//ƒJƒEƒ“ƒg‚ğ‰Šú‰»
+		FpsTime[1] = GetNowCount();               //50å‘¨ç›®ã®æ™‚é–“å–å¾—
+		Fps = 1000.0f / ((FpsTime[1] - FpsTime[0]) / 50.0f);//æ¸¬å®šã—ãŸå€¤ã‹ã‚‰fpsã‚’è¨ˆç®—
+		FpsTime_i = 0;//ã‚«ã‚¦ãƒ³ãƒˆã‚’åˆæœŸåŒ–
 	}
 	else
-		FpsTime_i++;//Œ»İ‰½ü–Ú‚©ƒJƒEƒ“ƒg
+		FpsTime_i++;//ç¾åœ¨ä½•å‘¨ç›®ã‹ã‚«ã‚¦ãƒ³ãƒˆ
 	if (Fps != 0)
-		DrawFormatString(1200, 700, color_white, "FPS %.1f", Fps); //fps‚ğ•\¦
+
+		DrawFormatString(1200, 700, color_white, "FPS %.1f", Fps); //fpsã‚’è¡¨ç¤º
+
 	return;
 }
 
 void SetColor() {
-	color_white = GetColor(255, 255, 255);            //”’Fƒnƒ“ƒhƒ‹‚ğæ“¾
+	color_white = GetColor(255, 255, 255);            //ç™½è‰²ãƒãƒ³ãƒ‰ãƒ«ã‚’å–å¾—
 	return;
 }
 
