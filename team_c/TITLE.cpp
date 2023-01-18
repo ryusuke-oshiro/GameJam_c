@@ -26,13 +26,12 @@ void TITLE::DrawTitle() {
 	}
 
 	if (input.Buttons[12] == 1 && Button_flg == FALSE) {
+		Button_flg = TRUE;
 		switch(menuNo){
 		case 0:
-			
 			g_GameState = 4;		// ƒƒCƒ“‰æ–Ê‚Ö
 			break;
 		case 1:
-			Button_flg = TRUE;
 			g_GameState = 1;		// ƒwƒ‹ƒv‰æ–Ê‚Ö
 			break;
 		case 2:
