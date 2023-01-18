@@ -28,5 +28,6 @@ public:
 	int Get_Level() {
 		return Level;
 	}
+	
 };
 extern still_image si;

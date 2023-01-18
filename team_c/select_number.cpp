@@ -5,8 +5,9 @@ select_number sn;
 select_number::select_number() {
 	Count = 0;
 	number = 0;
-	answer = FALSE;
+	answer = TRUE;
 	sn_flg = FALSE;
+	sn_text_flg = FALSE;
 	B_flg = TRUE;
 
 	left = FALSE;
@@ -62,13 +63,15 @@ void select_number::DrawSN() {
 			si.Set_Level(si.Get_Level() + 1);
 			Count = 0;
 			answer = TRUE;
+			sn_text_flg = TRUE;
 			sn_flg = FALSE;
 			gamemain.Set_phase(0);
 		}
-		else {									//ä‘à·Ç¢ÇæÇ¡ÇΩèÍçá
+		if(number != si.Get_Answer()) {									//ä‘à·Ç¢ÇæÇ¡ÇΩèÍçá
 			Count = 0;
 			answer = FALSE;
 			sn_flg = FALSE;
+			sn_text_flg = TRUE;
 			gamemain.Set_phase(0);
 		}
 	}

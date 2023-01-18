@@ -13,6 +13,7 @@ public:
 	int up;
 	int down;
 	int sn_flg;
+	int sn_text_flg;
 public:
 	select_number();
 	void DrawSN();
@@ -24,6 +25,12 @@ public:
 	}
 	int Get_sn_flg() {
 		return sn_flg;
+	}
+	int Get_sntext_flg() {
+		return  sn_text_flg;
+	}
+	void Set_st_flg(int n) {
+		sn_text_flg = n;
 	}
 };
 extern select_number sn;

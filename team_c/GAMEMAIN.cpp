@@ -22,7 +22,7 @@ void GAMEMAIN::GameMain() {
 			sn.DrawSN();		//数字選択
 			break;
 		case 3:
-			g_GameState = 3;
+			g_GameState = 0;
 		default:
 			break;
 	}
@@ -36,7 +36,7 @@ void GAMEMAIN::GameMain() {
 		DrawFormatString(640, 360, 0xff0000, "GameMain::数を選ぶ");
 		DrawFormatString(640, 400, 0xff0000, "%d", sn.Get_number());
 	}
-	if (sn.Get_sn_flg() == TRUE) {
+	if (sn.Get_sntext_flg() == TRUE) {
 		if (sn.Get_answer() == TRUE) {
 			DrawFormatString(640, 360 - 200, 0xffffff, "レベルアップ！");	//白文字
 		}
