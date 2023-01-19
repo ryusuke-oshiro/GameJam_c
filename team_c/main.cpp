@@ -121,6 +121,8 @@ int LoadImages()
 	if ((si.DispImage[5] = LoadGraph("images/chara06.png")) == -1) return -1;
 	if ((gamemain.Curtain_image = LoadGraph("images/Curtain.png")) == -1)return -1;
 	if ((title.Title_image = LoadGraph("images/Title.png")) == -1) return -1;
+	if ((end.endImages = LoadGraph("images/BackGround02.png")) == -1) return -1;
+	if ((help.helpImages = LoadGraph("images/BackGround02.png")) == -1) return -1;
 	return 0;
 }
 

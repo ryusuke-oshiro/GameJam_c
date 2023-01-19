@@ -4,8 +4,8 @@ class HELP {
 
 public:
 
-	int HelpWaitTime ;
-
+	int helpWaitTime ;
+	int helpImages;
 public:
 
 
