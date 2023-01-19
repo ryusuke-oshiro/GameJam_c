@@ -14,6 +14,7 @@ hanging_screen::hanging_screen() {
 	flg = FALSE;
 	Circle_flg = TRUE;
 	Clear_flg = FALSE;
+	GameStart_image = 0;
 }
 
 void hanging_screen::Init() {
@@ -30,10 +31,12 @@ void hanging_screen::Init() {
 void hanging_screen::DrawCurtain() {
 
 	if (si.Get_Level() == 1) {	
+		DrawGraph(0, 0, GameStart_image, FALSE);
+
 		if (sn.Get_answer() == TRUE) {		//タイトルからレベル１で来た時
 			Count++;
-			SetFontSize(24);
-			DrawFormatString(Pos_x, Pos_y, 0xffffff, "[ニワトリ]を探そう ！");	//白文字
+			//SetFontSize(24);
+			//DrawFormatString(Pos_x, Pos_y, 0xffffff, "[ニワトリ]を探そう ！");	//白文字
 
 			if (120 < Count) {
 				if (gamemain.DownCurtain() == true) {

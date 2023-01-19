@@ -14,6 +14,7 @@ public:
 	int Circle_flg;
 	int flg;
 	int Clear_flg;
+	int GameStart_image;
 public:
 	hanging_screen();
 	void Init();
