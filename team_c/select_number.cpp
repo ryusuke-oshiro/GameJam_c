@@ -14,6 +14,8 @@ select_number::select_number() {
 	right = TRUE;
 	up = FALSE;
 	down = FALSE;
+	GameClear_se = 0;
+	GameOver_se = 0;
 	SE2 = 0;
 }
 
