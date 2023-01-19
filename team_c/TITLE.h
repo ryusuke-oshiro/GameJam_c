@@ -3,6 +3,7 @@
 class TITLE {
 public:
 	int x;
+	int Title_image;
 public:
 	TITLE();
 	void DrawTitle();

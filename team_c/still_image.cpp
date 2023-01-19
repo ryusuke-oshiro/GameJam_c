@@ -12,6 +12,8 @@ still_image::still_image() {
 	Level = 1;
 	DispAllCount = 0;
 	DispTargetCount = 0;
+	TimeLimit = 3.0;
+	TL_textflg = FALSE;
 	/*--------ここに画像をロードする-------*/
 	DispImage[TARGET] = 0;
 	DispImage[1] = 0;
@@ -19,7 +21,7 @@ still_image::still_image() {
 	DispImage[3] = 0;
 	DispImage[4] = 0;
 	DispImage[5] = 0;
-	BackGround_img = 0;
+	BackGround_image = 0;
 	/*--------ここに画像をロードする-------*/
 	InitPos();
 }
@@ -30,6 +32,8 @@ void still_image::Init() {
 	Level = 1;
 	DispAllCount = 0;
 	DispTargetCount = 0;
+	TimeLimit = 3.0;
+	TL_textflg = FALSE;
 	InitPos();
 }
 
@@ -39,11 +43,16 @@ void still_image::DrawImage() {
 	if (Count < 30) {
 		gamemain.UpCurtain();
 	}
+	if (30 <= Count && Count <= 210) {
+		TimeLimit = 3.0 - ((Count - 30.0) / 60.0);
+		TL_textflg = TRUE;
+	}
 	if (210 < Count) {
+		TL_textflg = FALSE;
 		gamemain.DownCurtain();
 	}
 
-	DrawGraph(0, 0, BackGround_img, FALSE);
+	DrawGraph(0, 0, BackGround_image, FALSE);
 	
 	//ここに制限時間表示
 

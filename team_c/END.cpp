@@ -2,7 +2,7 @@
 END end;
 
 END::END() {
-
+	count = 0;
 }
 
 void END::DrawEnd() {

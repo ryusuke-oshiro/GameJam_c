@@ -42,10 +42,15 @@ void GAMEMAIN::GameMain() {
 		DrawFormatString(640, 400, 0xff0000, "レベル[ %d ]", si.Get_Level());
 		DrawFormatString(640, 430, 0xff0000, "Aでスタート！");
 	}
+	if (si.Get_TLtex() == TRUE) {
+		DrawFormatString(640, 100, 0xffffff, "のこり　%.2f秒！", si.Get_TL());
+	}
 	if (sn.Get_sn_flg() == TRUE) {
 		DrawFormatString(640, 360, 0xff0000, "GameMain::数を選ぶ");
 		DrawFormatString(640, 400, 0xff0000, "%d", sn.Get_number());
 	}
+
+
 	if (sn.Get_sntext_flg() == TRUE) {
 		if (sn.Get_answer() == TRUE) {
 			if (si.Get_Level() <= 10) {
@@ -53,7 +58,7 @@ void GAMEMAIN::GameMain() {
 			}
 		}
 		if (sn.Get_answer() == FALSE) {
-			DrawFormatString(640, 360 - 200, 0xffffff, "失敗、、、正解は%d", si.Get_Answer());	//白文字
+			DrawFormatString(640, 360 - 200, 0xffffff, "GAME OVER", si.Get_Answer());	//白文字
 		}
 	}
 	if (hs.Get_clear_flg() == TRUE) {
