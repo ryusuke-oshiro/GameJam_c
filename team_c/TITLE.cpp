@@ -20,7 +20,7 @@ void TITLE::DrawTitle() {
 	if (input.Buttons[12] == 1) {
 		StopSoundMem(Title_bgm);
 		// ƒ^ƒCƒgƒ‹SE
-		PlaySoundMem(SE1, DX_PLAYTYPE_BACK, FALSE);
+		PlaySoundMem(SE1, DX_PLAYTYPE_BACK);
 
 		g_GameState = 2;
 	}

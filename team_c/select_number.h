@@ -14,6 +14,8 @@ public:
 	int down;
 	int sn_flg;
 	int sn_text_flg;
+	int GameClear_se;
+	int GameOver_se;
 	int SE2;
 public:
 	select_number();
