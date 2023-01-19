@@ -12,7 +12,7 @@ END::END() {
 void END::DrawEnd() {
 
 	//エンディング表示
-	if (++endwaittime < 2500) endPosY = 300 - endwaittime / 2;
+	if (++endwaittime < 2300) endPosY = 300 - endwaittime / 2;
 
 	SetFontSize(80);
 	DrawFormatString(140, 5 + endPosY, 0xfffff, "Thank you for playing!!!");
@@ -27,16 +27,12 @@ void END::DrawEnd() {
 	DrawFormatString(620, 550 + endPosY, 0xffffff, "幸地　涼耶");
 
 
-
-
-
-
 	//タイム加算処理&終了
-	if (++endwaittime > 2500)g_GameState = 99;
+	if (++endwaittime > 2300)g_GameState = 99;
 
 	if (endwaittime > 2000) {
-		SetFontSize(40);
-		DrawFormatString(640, 320, 0xffd700, "END");
+		SetFontSize(200);
+		DrawFormatString(520, 260, 0xffd700, "END");
 	}
 
 
