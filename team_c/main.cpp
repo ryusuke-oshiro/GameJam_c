@@ -134,13 +134,16 @@ int LoadSounds()
 	if ((gamemain.GameOver_se = LoadSoundMem("sounds/SE/gameover03.mp3")) == -1) return -1;
 
 	// タイトルSEの読込
-	if ((title.Title_se = LoadSoundMem("sounds/SE/決定ボタンを押す34.mp3")) == -1) return -1;
+	if ((title.SE1 = LoadSoundMem("sounds/SE/button_a.mp3")) == -1) return -1;
+	// SE1の読込
+	if ((sn.SE2 = LoadSoundMem("sounds/SE/sn.mp3")) == -1) return -1;
 
 
 	// SEの音量調整
 	ChangeVolumeSoundMem(600, gamemain.GameClear_se);
 	ChangeVolumeSoundMem(800, gamemain.GameOver_se);
-	ChangeVolumeSoundMem(1000, title.Title_se);
+	ChangeVolumeSoundMem(1000, title.SE1);
+	ChangeVolumeSoundMem(1000, sn.SE2);
 
 	return 0;
 }

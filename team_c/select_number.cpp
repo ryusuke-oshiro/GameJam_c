@@ -14,6 +14,8 @@ select_number::select_number() {
 	right = TRUE;
 	up = FALSE;
 	down = FALSE;
+
+	SE2 = 0;		// SE
 }
 
 void select_number::Init() {
@@ -37,10 +39,12 @@ void select_number::DrawSN() {
 	if (input.Buttons[0] == 1 && B_flg == TRUE) {	//è„
 		B_flg = FALSE;
 			number += 1;
+			PlaySoundMem(SE2, DX_PLAYTYPE_BACK, FALSE);	// SEÇÃí«â¡
 	}
 	if (input.Buttons[1] == 1 && B_flg == TRUE) {	//â∫
 		B_flg = FALSE;
 			number -= 1;
+			PlaySoundMem(SE2, DX_PLAYTYPE_BACK, FALSE);	// SEÇÃí«â¡
 	}
 
 	if (input.Buttons[0] == 0 && input.Buttons[1] == 0 && input.Buttons[2] == 0 && input.Buttons[3] == 0) {

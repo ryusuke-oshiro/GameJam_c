@@ -4,7 +4,7 @@ class TITLE {
 public:
 	int x;
 	int Title_bgm;
-	int Title_se;
+	int SE1;
 public:
 	TITLE();
 	void DrawTitle();
