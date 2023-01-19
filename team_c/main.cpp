@@ -144,8 +144,8 @@ int LoadSounds()
 
 
 	// SEÇÃâπó í≤êÆ
-	ChangeVolumeSoundMem(600, gamemain.GameClear_se);
-	ChangeVolumeSoundMem(800, gamemain.GameOver_se);
+	ChangeVolumeSoundMem(1000, gamemain.GameClear_se);
+	ChangeVolumeSoundMem(1000, gamemain.GameOver_se);
 	ChangeVolumeSoundMem(1000, title.SE1);
 	ChangeVolumeSoundMem(1000, sn.SE2);
 	return 0;
