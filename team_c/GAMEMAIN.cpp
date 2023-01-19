@@ -42,6 +42,9 @@ void GAMEMAIN::GameMain() {
 		DrawFormatString(640, 400, 0xff0000, "レベル[ %d ]", si.Get_Level());
 		DrawFormatString(640, 430, 0xff0000, "Aでスタート！");
 	}
+	if (si.Get_TLtex() == TRUE) {
+		DrawFormatString(640, 100, 0xffffff, "のこり　%.2f秒！", si.Get_TL());
+	}
 	if (sn.Get_sn_flg() == TRUE) {
 		DrawFormatString(640, 360, 0xff0000, "GameMain::数を選ぶ");
 		DrawFormatString(640, 400, 0xff0000, "%d", sn.Get_number());

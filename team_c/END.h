@@ -2,6 +2,8 @@
 #include"DxLib.h"
 class END {
 public:
+	int count;
+public:
 	END();
 	void DrawEnd();
 };

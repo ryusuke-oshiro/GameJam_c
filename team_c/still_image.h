@@ -8,6 +8,8 @@ public:
 	int Count;
 	int Answer;
 	int Level;
+	float TimeLimit;
+	int TL_textflg;
 	int DispAllCount;	//表示個数
 	int DispTargetCount;//探す対象の個数
 	int DispImage[6];	//各イメージ
@@ -28,6 +30,12 @@ public:
 	}
 	int Get_Level() {
 		return Level;
+	}
+	int Get_TLtex() {
+		return TL_textflg;
+	}
+	float Get_TL() {
+		return TimeLimit;
 	}
 	
 };

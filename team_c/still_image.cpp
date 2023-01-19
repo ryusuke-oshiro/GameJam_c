@@ -12,6 +12,8 @@ still_image::still_image() {
 	Level = 1;
 	DispAllCount = 0;
 	DispTargetCount = 0;
+	TimeLimit = 3.0;
+	TL_textflg = FALSE;
 	/*--------‚±‚±‚É‰æ‘œ‚ğƒ[ƒh‚·‚é-------*/
 	DispImage[TARGET] = 0;
 	DispImage[1] = 0;
@@ -30,6 +32,8 @@ void still_image::Init() {
 	Level = 1;
 	DispAllCount = 0;
 	DispTargetCount = 0;
+	TimeLimit = 3.0;
+	TL_textflg = FALSE;
 	InitPos();
 }
 
@@ -39,7 +43,12 @@ void still_image::DrawImage() {
 	if (Count < 30) {
 		gamemain.UpCurtain();
 	}
+	if (30 <= Count && Count <= 210) {
+		TimeLimit = 3.0 - ((Count - 30.0) / 60.0);
+		TL_textflg = TRUE;
+	}
 	if (210 < Count) {
+		TL_textflg = FALSE;
 		gamemain.DownCurtain();
 	}
 
