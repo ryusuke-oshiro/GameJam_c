@@ -9,6 +9,9 @@ GAMEMAIN::GAMEMAIN() {
 	CPos_y = 0;
 	Curtain_flg = FALSE;
 	Curtain_image = 0;
+	Game_bgm = 0;
+	GameClear_se = 0;
+	GameOver_se = 0;
 }
 
 void GAMEMAIN::Init() {

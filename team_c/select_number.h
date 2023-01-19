@@ -14,6 +14,7 @@ public:
 	int down;
 	int sn_flg;
 	int sn_text_flg;
+	int SE2;
 public:
 	select_number();
 	void Init();

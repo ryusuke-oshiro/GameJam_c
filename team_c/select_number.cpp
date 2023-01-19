@@ -14,6 +14,7 @@ select_number::select_number() {
 	right = TRUE;
 	up = FALSE;
 	down = FALSE;
+	SE2 = 0;
 }
 
 void select_number::Init() {

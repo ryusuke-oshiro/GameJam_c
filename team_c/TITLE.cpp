@@ -6,6 +6,8 @@ TITLE title;
 TITLE::TITLE() {
 	x = 0;
 	Title_image = 0;
+	Title_bgm = 0;
+	SE1 = 0;
 }
 
 void TITLE::DrawTitle() {

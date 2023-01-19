@@ -12,6 +12,9 @@ public:
 	int UpDownCount;
 	int Curtain_flg;
 	int Curtain_image;
+	int Game_bgm;
+	int GameClear_se;
+	int GameOver_se;
 public:
 	GAMEMAIN();
 	int UpCurtain();
