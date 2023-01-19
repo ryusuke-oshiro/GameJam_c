@@ -10,7 +10,7 @@ hanging_screen::hanging_screen() {
 	fhase_flg = FALSE;
 	DispLevelflg = FALSE;
 	Count = 0;
-	levelup_count = 30;
+	levelup_count = 0;
 	flg = FALSE;
 	Circle_flg = TRUE;
 	Clear_flg = FALSE;
@@ -23,7 +23,7 @@ void hanging_screen::Init() {
 	fhase_flg = FALSE;
 	DispLevelflg = FALSE;
 	Count = 0;
-	levelup_count = 30;
+	levelup_count = 0;
 	flg = FALSE;
 	Circle_flg = TRUE;
 }

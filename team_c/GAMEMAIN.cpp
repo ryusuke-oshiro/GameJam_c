@@ -40,28 +40,30 @@ void GAMEMAIN::GameMain() {
 	DrawGraph(0, -720 + CPos_y, Curtain_image, TRUE);
 
 	if (hs.Get_DispLevelflg() == TRUE && si.Get_Level() <= 10) {
-		DrawFormatString(640, 400, 0xff0000, "レベル[ %d ]", si.Get_Level());
-		DrawFormatString(640, 430, 0xff0000, "Aでスタート！");
+		DrawFormatString(600, 400, 0xff0000, "レベル[ %d ]", si.Get_Level());
+		DrawFormatString(600, 430, 0xff0000, "Aでスタート！");
 	}
+	SetFontSize(64);
 	if (si.Get_TLtex() == TRUE) {
-		DrawFormatString(640, 100, 0xffffff, "のこり　%.2f秒！", si.Get_TL());
+		DrawFormatString(600, 100, 0xffffff, "のこり　%.2f秒！", si.Get_TL());
 	}
+	SetFontSize(24);
 	if (sn.Get_sn_flg() == TRUE) {
-		DrawFormatString(640, 360, 0xff0000, "GameMain::数を選ぶ");
-		DrawFormatString(640, 400, 0xff0000, "%d", sn.Get_number());
+		DrawFormatString(600, 360, 0xff0000, "GameMain::数を選ぶ");
+		DrawFormatString(600, 400, 0xff0000, "%d", sn.Get_number());
 	}
 
 
 	if (sn.Get_sntext_flg() == TRUE) {
 		if (sn.Get_answer() == TRUE) {
-				DrawFormatString(640, 360 - 200, 0xffffff, "レベルアップ！");	//白文字
+				DrawFormatString(600, 360 - 200, 0xffffff, "レベルアップ！");	//白文字
 		}
 		if (sn.Get_answer() == FALSE) {
-			DrawFormatString(640, 360 - 200, 0xffffff, "GAME OVER\nAボタンでタイトルに戻る");	//白文字
+			DrawFormatString(600, 360 - 200, 0xffffff, "GAME OVER\nAボタンでタイトルに戻る");	//白文字
 		}
 	}
 	if (hs.Get_clear_flg() == TRUE) {
-		DrawFormatString(640, 360 - 200, 0xffffff, "全レベルクリア！Aボタンでタイトルに戻ります");	//白文字
+		DrawFormatString(600, 360 - 200, 0xffffff, "全レベルクリア！Aボタンでタイトルに戻ります");	//白文字
 	}
 }
 
