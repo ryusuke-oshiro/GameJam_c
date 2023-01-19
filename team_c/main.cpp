@@ -124,5 +124,19 @@ int LoadImages()
 
 int LoadSounds()
 {
+	// タイトルBGMの読込
+	if ((title.Title_bgm = LoadSoundMem("sounds/BGM/逃げろ!ひつじの大群だ!_2.mp3")) == -1) return -1;
+	// ゲームBGMの読込
+	if ((gamemain.Game_bgm = LoadSoundMem("sounds/BGM/どた☆ばたコミック！.mp3")) == -1) return -1;
+	// ゲームクリアBGMの読込
+	if ((gamemain.GameClear_se = LoadSoundMem("sounds/SE/clear.mp3")) == -1) return -1;
+	// ゲームオーバーBGMの読込
+	if ((gamemain.GameOver_se = LoadSoundMem("sounds/SE/gameover03.mp3")) == -1) return -1;
+
+
+	// SEの音量調整
+	ChangeVolumeSoundMem(600, gamemain.GameClear_se);
+	ChangeVolumeSoundMem(800, gamemain.GameOver_se);
+
 	return 0;
 }
