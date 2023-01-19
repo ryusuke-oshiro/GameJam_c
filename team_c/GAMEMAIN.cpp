@@ -20,6 +20,7 @@ void GAMEMAIN::Init() {
 }
 
 void GAMEMAIN::GameMain() {
+	CPos_y = UpDownCount * 24;
 	switch(phase) {
 		case 0:
 			hs.DrawCurtain();	//êÇÇÍñã
@@ -35,8 +36,8 @@ void GAMEMAIN::GameMain() {
 		default:
 			break;
 	}
-
-	DrawGraph(0, -744 + CPos_y, Curtain_image, TRUE);
+	//CPos_y = UpDownCount * 24;
+	DrawGraph(0, -720 + CPos_y, Curtain_image, TRUE);
 
 	if (hs.Get_DispLevelflg() == TRUE && si.Get_Level() <= 10) {
 		DrawFormatString(640, 400, 0xff0000, "ÉåÉxÉã[ %d ]", si.Get_Level());
@@ -66,15 +67,13 @@ void GAMEMAIN::GameMain() {
 
 int GAMEMAIN::DownCurtain() {
 	UpDownCount++;
-	CPos_y = UpDownCount * 24;
-	if (30 < UpDownCount) {
+	if (30 <= UpDownCount) {
 		UpDownCount = 30;
 		return true;
 	}
 }
 int GAMEMAIN::UpCurtain() {
 	UpDownCount--;
-	CPos_y = UpDownCount * 24;
 	if (UpDownCount <= 0) {
 		UpDownCount = 0;
 		return true;

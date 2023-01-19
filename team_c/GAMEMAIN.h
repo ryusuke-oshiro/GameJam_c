@@ -24,6 +24,9 @@ public:
 	int Get_Cflg() {
 		return Curtain_flg;
 	}
+	int Get_CPos_y() {
+		return CPos_y;
+	}
 	void GameMain();
 	void Init();
 };

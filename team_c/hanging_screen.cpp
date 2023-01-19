@@ -54,16 +54,21 @@ void hanging_screen::DrawCurtain() {
 		}
 
 		if (sn.Get_answer() == FALSE) {		//ƒŒƒxƒ‹‚P‚ÅŽ¸”s‚µ‚Ä—ˆ‚½Žž
-			DrawGraph(0, 0, si.BackGround_image, FALSE);
+			DrawGraph(0, 0 + gamemain.Get_CPos_y(), si.BackGround_image, FALSE);
 			for (int i = 0; i < si.DispTargetCount; i++) {
-				DrawExtendGraph(si.DispTargetPos[i][0] - (CHARA_SIZE / 2), si.DispTargetPos[i][1] - (CHARA_SIZE / 2), si.DispTargetPos[i][0] + (CHARA_SIZE / 2), si.DispTargetPos[i][1] + (CHARA_SIZE / 2), si.DispImage[0], TRUE);
+				DrawExtendGraph(si.DispTargetPos[i][0] - (CHARA_SIZE / 2), si.DispTargetPos[i][1] - (CHARA_SIZE / 2) + gamemain.Get_CPos_y(),
+					si.DispTargetPos[i][0] + (CHARA_SIZE / 2), si.DispTargetPos[i][1] + (CHARA_SIZE / 2) + gamemain.Get_CPos_y(),
+					si.DispImage[0], TRUE);
 			}
 			for (int j = 0; j < si.DispAllCount - si.DispTargetCount; j++) {
-				DrawExtendGraph(si.DispElsePos[j][0] - (CHARA_SIZE / 2), si.DispElsePos[j][1] - (CHARA_SIZE / 2), si.DispElsePos[j][0] + (CHARA_SIZE / 2), si.DispElsePos[j][1] + (CHARA_SIZE / 2), si.DispImage[si.DispElsePos[j][3]], TRUE);
+				DrawExtendGraph(si.DispElsePos[j][0] - (CHARA_SIZE / 2), si.DispElsePos[j][1] - (CHARA_SIZE / 2) + gamemain.Get_CPos_y(),
+					si.DispElsePos[j][0] + (CHARA_SIZE / 2), si.DispElsePos[j][1] + (CHARA_SIZE / 2) + gamemain.Get_CPos_y(),
+					si.DispImage[si.DispElsePos[j][3]], TRUE);
 			}
 			if (Circle_flg == TRUE) {
 				for (int i = 0; i < si.DispTargetCount; i++) {
-					DrawCircle(si.DispTargetPos[i][0], si.DispTargetPos[i][1], CHARA_SIZE / 2, 0xff0000, FALSE,TRUE);
+					DrawCircle(si.DispTargetPos[i][0], si.DispTargetPos[i][1] + gamemain.Get_CPos_y(), 
+						CHARA_SIZE / 2, 0xff0000, FALSE,TRUE);
 				}
 			}
 
@@ -94,16 +99,22 @@ void hanging_screen::DrawCurtain() {
 		SetFontSize(24);
 		
 		
-		DrawGraph(0, 0, si.BackGround_image, FALSE);
+		DrawGraph(0, 0 + gamemain.Get_CPos_y(), si.BackGround_image, FALSE);
+
 		for (int i = 0; i < si.DispTargetCount; i++) {
-			DrawExtendGraph(si.DispTargetPos[i][0] - (CHARA_SIZE / 2), si.DispTargetPos[i][1] - (CHARA_SIZE / 2), si.DispTargetPos[i][0] + (CHARA_SIZE / 2), si.DispTargetPos[i][1] + (CHARA_SIZE / 2), si.DispImage[0], TRUE);
+			DrawExtendGraph(si.DispTargetPos[i][0] - (CHARA_SIZE / 2), si.DispTargetPos[i][1] - (CHARA_SIZE / 2) + gamemain.Get_CPos_y(),
+				si.DispTargetPos[i][0] + (CHARA_SIZE / 2), si.DispTargetPos[i][1] + (CHARA_SIZE / 2) + gamemain.Get_CPos_y(),
+				si.DispImage[0], TRUE);
 		}
 		for (int j = 0; j < si.DispAllCount - si.DispTargetCount; j++) {
-			DrawExtendGraph(si.DispElsePos[j][0] - (CHARA_SIZE / 2), si.DispElsePos[j][1] - (CHARA_SIZE / 2), si.DispElsePos[j][0] + (CHARA_SIZE / 2), si.DispElsePos[j][1] + (CHARA_SIZE / 2), si.DispImage[si.DispElsePos[j][3]], TRUE);
+			DrawExtendGraph(si.DispElsePos[j][0] - (CHARA_SIZE / 2), si.DispElsePos[j][1] - (CHARA_SIZE / 2) + gamemain.Get_CPos_y(),
+				si.DispElsePos[j][0] + (CHARA_SIZE / 2), si.DispElsePos[j][1] + (CHARA_SIZE / 2) + gamemain.Get_CPos_y(),
+				si.DispImage[si.DispElsePos[j][3]], TRUE);
 		}
 		if (Circle_flg == TRUE) {
 			for (int i = 0; i < si.DispTargetCount; i++) {
-				DrawCircle(si.DispTargetPos[i][0], si.DispTargetPos[i][1], CHARA_SIZE / 2, 0xff0000, FALSE, TRUE);
+				DrawCircle(si.DispTargetPos[i][0], si.DispTargetPos[i][1] + gamemain.Get_CPos_y(), 
+					CHARA_SIZE / 2, 0xff0000, FALSE, TRUE);
 			}
 		}
 

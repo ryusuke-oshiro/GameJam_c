@@ -40,7 +40,7 @@ void still_image::Init() {
 void still_image::DrawImage() {
 	Count++;
 	
-	if (Count < 30) {
+	if (Count <= 30) {
 		gamemain.UpCurtain();
 	}
 	if (30 <= Count && Count <= 210) {
@@ -52,22 +52,24 @@ void still_image::DrawImage() {
 		gamemain.DownCurtain();
 	}
 
-	DrawGraph(0, 0, BackGround_image, FALSE);
+	DrawGraph(0, 0 + gamemain.Get_CPos_y(), BackGround_image, FALSE);
 	
 	//‚±‚±‚É§ŒÀŽžŠÔ•\Ž¦
 
 	for (int i = 0; i < DispTargetCount; i++) {
-		//DrawGraph(DispTargetPos[i][0], DispTargetPos[i][1], DispImage[0], TRUE);
-		DrawExtendGraph(DispTargetPos[i][0] - (CHARA_SIZE/2), DispTargetPos[i][1] - (CHARA_SIZE / 2), DispTargetPos[i][0] + (CHARA_SIZE / 2), DispTargetPos[i][1] + (CHARA_SIZE / 2), DispImage[0], TRUE);
+		DrawExtendGraph(DispTargetPos[i][0] - (CHARA_SIZE/2), DispTargetPos[i][1] - (CHARA_SIZE / 2) + gamemain.Get_CPos_y(),
+			DispTargetPos[i][0] + (CHARA_SIZE / 2), DispTargetPos[i][1] + (CHARA_SIZE / 2) + gamemain.Get_CPos_y(),
+			DispImage[0], TRUE);
 	}
 	for (int j = 0; j < DispAllCount - DispTargetCount; j++) {
-		//DrawGraph(DispElsePos[j][0], DispElsePos[j][1], DispImage[DispElsePos[j][3]], TRUE);
-		DrawExtendGraph(DispElsePos[j][0] - (CHARA_SIZE / 2), DispElsePos[j][1] - (CHARA_SIZE / 2), DispElsePos[j][0] + (CHARA_SIZE / 2), DispElsePos[j][1] + (CHARA_SIZE / 2), DispImage[DispElsePos[j][3]], TRUE);
-		//DrawFormatString(DispElsePos[j][0], DispElsePos[j][1], 0x00ff00, "%d", DispImage[DispElsePos[j][3]]);
+		DrawExtendGraph(DispElsePos[j][0] - (CHARA_SIZE / 2), DispElsePos[j][1] - (CHARA_SIZE / 2) + gamemain.Get_CPos_y(),
+			DispElsePos[j][0] + (CHARA_SIZE / 2), DispElsePos[j][1] + (CHARA_SIZE / 2) + gamemain.Get_CPos_y(),
+			DispImage[DispElsePos[j][3]], TRUE);
 	}
 	
 	if (240 < Count) {
 		Count = 0;
+		sn.Reset_number();
 		gamemain.Set_phase(2);
 	}
 }

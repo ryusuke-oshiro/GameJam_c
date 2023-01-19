@@ -27,6 +27,9 @@ public:
 	int Get_number() {
 		return number;
 	}
+	void Reset_number() {
+		number = 0;
+	}
 	int Get_sn_flg() {
 		return sn_flg;
 	}
