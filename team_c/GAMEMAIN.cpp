@@ -43,6 +43,8 @@ void GAMEMAIN::GameMain() {
 	DrawGraph(0, -720 + CPos_y, Curtain_image, TRUE);
 
 	if (hs.Get_DispLevelflg() == TRUE && si.Get_Level() <= 10) {
+		// ゲームBGM
+		PlaySoundMem(Game_bgm, DX_PLAYTYPE_LOOP, FALSE);
 		DrawFormatString(600, 400, 0xff0000, "レベル[ %d ]", si.Get_Level());
 		DrawFormatString(600, 430, 0xff0000, "Aでスタート！");
 	}

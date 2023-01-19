@@ -38,6 +38,7 @@ void select_number::DrawSN() {
 	if (input.Buttons[0] == 1 && B_flg == TRUE) {	//上
 		B_flg = FALSE;
 			number += 1;
+			PlaySoundMem(SE2, DX_PLAYTYPE_BACK);	// SEの追加
 			if (number > 5) {
 				number = 5;
 			}
@@ -45,6 +46,7 @@ void select_number::DrawSN() {
 	if (input.Buttons[1] == 1 && B_flg == TRUE) {	//下
 		B_flg = FALSE;
 			number -= 1;
+			PlaySoundMem(SE2, DX_PLAYTYPE_BACK);	// SEの追加
 			if (number < 1) {
 				number = 1;
 			}
@@ -56,6 +58,8 @@ void select_number::DrawSN() {
 
 	if (input.Buttons[12] == 1 && number != 0) {
 		if (number == si.Get_Answer()) {		//正解だった場合
+			// ゲームクリアSE
+			PlaySoundMem(GameClear_se, DX_PLAYTYPE_BACK, TRUE);
 			si.Set_Level(si.Get_Level() + 1);
 			answer = TRUE;
 			sn_text_flg = TRUE;
@@ -63,6 +67,8 @@ void select_number::DrawSN() {
 			gamemain.Set_phase(0);
 		}
 		if(number != si.Get_Answer()) {			//間違いだった場合
+			// ゲームオーバーSE
+			PlaySoundMem(GameOver_se, DX_PLAYTYPE_BACK, TRUE);
 			answer = FALSE;
 			sn_flg = FALSE;
 			sn_text_flg = TRUE;
