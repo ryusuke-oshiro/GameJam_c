@@ -11,6 +11,8 @@ TITLE::TITLE() {
 }
 
 void TITLE::DrawTitle() {
+	// タイトルBGM
+	PlaySoundMem(Title_bgm, DX_PLAYTYPE_BACK, FALSE);
 	DrawGraph(0, 0, Title_image, FALSE);
 
 	static int menuNo = 0;
@@ -30,6 +32,9 @@ void TITLE::DrawTitle() {
 	}
 
 	if (input.Buttons[12] == 1 && Button_flg == FALSE) {
+		StopSoundMem(Title_bgm);
+		// タイトルSE
+		PlaySoundMem(SE1, DX_PLAYTYPE_BACK);
 		Button_flg = TRUE;
 		switch (menuNo) {
 		case 0:
