@@ -32,13 +32,13 @@ int WINAPI WinMain(_In_ HINSTANCE hInssance, _In_opt_ HINSTANCE
 	hPrevInstance, _In_ LPSTR IpCmdLine, _In_ int nCmdShow)
 {
 
-	SetMainWindowText("Mitukeru");		//タイトルを設定
+	SetMainWindowText("ニワトリ大脱走");		//タイトルを設定
 
 	ChangeWindowMode(TRUE);					//ウィンドウモードで起動
 
 	if (DxLib_Init() == -1)return -1;		//DXライブラリの初期化処理
 	
-	SetWindowText("Mitukeru");
+	SetWindowText("ニワトリ大脱走");
 	//SetWindowInitPosition(480, 600);
 	SetGraphMode(1280, 720, 32);
 	
@@ -130,23 +130,27 @@ int LoadImages()
 int LoadSounds()
 {
 	// タイトルBGMの読込
-	if ((title.Title_bgm = LoadSoundMem("sounds/BGM/逃げろ!ひつじの大群だ!_2.mp3")) == -1) return -1;
+	if ((title.Title_bgm = LoadSoundMem("sounds/BGM/Title_BGM.wav")) == -1) return -1;
 	// ゲームBGMの読込
-	if ((gamemain.Game_bgm = LoadSoundMem("sounds/BGM/どた☆ばたコミック！.mp3")) == -1) return -1;
+	if ((gamemain.Game_bgm = LoadSoundMem("sounds/BGM/Main_BGM.wav")) == -1) return -1;
 	// ゲームクリアSEの読込
-	if ((sn.GameClear_se = LoadSoundMem("sounds/SE/clear.mp3")) == -1) return -1;
+	if ((sn.GameClear_se = LoadSoundMem("sounds/SE/clear.wav")) == -1) return -1;
 	// ゲームオーバーSEの読込
-	if ((sn.GameOver_se = LoadSoundMem("sounds/SE/gameover03.mp3")) == -1) return -1;
+	if ((sn.GameOver_se = LoadSoundMem("sounds/SE/gameover03.wav")) == -1) return -1;
 
 	// タイトルSEの読込
-	if ((title.SE1 = LoadSoundMem("sounds/SE/button_a.mp3")) == -1) return -1;
+	if ((title.SE1 = LoadSoundMem("sounds/SE/button_a.wav")) == -1) return -1;
 	// SE1の読込
-	if ((sn.SE2 = LoadSoundMem("sounds/SE/sn.mp3")) == -1) return -1;
+	if ((sn.SE2 = LoadSoundMem("sounds/SE/sn.wav")) == -1) return -1;
+
+	//BGMの音量調整
+	ChangeVolumeSoundMem(150, title.Title_bgm);
+	ChangeVolumeSoundMem(130, gamemain.Game_bgm);
 
 	// SEの音量調整
-	ChangeVolumeSoundMem(1000, sn.GameClear_se);
-	ChangeVolumeSoundMem(1000, sn.GameOver_se);
-	ChangeVolumeSoundMem(1000, title.SE1);
-	ChangeVolumeSoundMem(1000, sn.SE2);
+	ChangeVolumeSoundMem(240, sn.GameClear_se);
+	ChangeVolumeSoundMem(240, sn.GameOver_se);
+	ChangeVolumeSoundMem(200, title.SE1);
+	ChangeVolumeSoundMem(500, sn.SE2);
 	return 0;
 }

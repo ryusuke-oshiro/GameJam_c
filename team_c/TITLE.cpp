@@ -12,7 +12,10 @@ TITLE::TITLE() {
 
 void TITLE::DrawTitle() {
 	// タイトルBGM
-	PlaySoundMem(Title_bgm, DX_PLAYTYPE_LOOP, FALSE);
+	if (CheckSoundMem(Title_bgm) == 0) {
+		PlaySoundMem(Title_bgm, DX_PLAYTYPE_BACK, TRUE);
+	}
+
 	DrawGraph(0, 0, Title_image, FALSE);
 
 	static int menuNo = 0;
@@ -55,8 +58,8 @@ void TITLE::DrawTitle() {
 	posY = menuNo * 100;
 	DrawTriangle(810, 310 + posY, 840, 330 + posY, 810, 350 + posY, 0xffffff, TRUE);
 
-	SetFontSize(150);
-	DrawString(725, 50, "TITLE", 0xffffff, 0);
+	SetFontSize(120);
+	DrawString(380, 80, "ニワトリ大脱走", 0xd57400, 0);
 
 	SetFontSize(60);
 	DrawString(850, 300, "START", 0xffffff, 0);

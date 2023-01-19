@@ -45,7 +45,10 @@ void GAMEMAIN::GameMain() {
 
 	if (hs.Get_DispLevelflg() == TRUE && si.Get_Level() <= 10) {
 		// ゲームBGM
-		PlaySoundMem(Game_bgm, DX_PLAYTYPE_LOOP, FALSE);
+		if (CheckSoundMem(Game_bgm) == 0) {
+			PlaySoundMem(Game_bgm, DX_PLAYTYPE_BACK, TRUE);
+		}
+
 		DrawFormatString(600, 400, 0xff0000, "レベル[ %d ]", si.Get_Level());
 		DrawFormatString(600, 430, 0xff0000, "Aでスタート！");
 	}

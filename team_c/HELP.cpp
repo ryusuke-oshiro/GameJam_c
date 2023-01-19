@@ -15,7 +15,7 @@ void HELP::DrawHelp() {
 	}
 
 	SetFontSize(25);
-	DrawString(450, 690, "--- Aを押してタイトルに戻る ---", 0xffffff, 0);
+	DrawString(450, 680, "--- Aを押してタイトルに戻る ---", 0xffffff, 0);
 
 
 	if (input.Buttons[12] == 1 && Button_flg == FALSE) {
