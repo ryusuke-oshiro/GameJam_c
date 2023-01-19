@@ -45,10 +45,10 @@ void TITLE::DrawTitle() {
 
 
 	posY = menuNo * 100;
-	DrawTriangle(810, 310 + posY, 840, 330 + posY, 810, 350 + posY, 0xffffff, TRUE);
+	DrawTriangle(810, 310 + posY, 840, 330 + posY, 810, 350 + posY,0xff0000, TRUE);
 
-	SetFontSize(150);
-	DrawString(725, 50, "TITLE", 0xffffff, 0);
+	SetFontSize(100);
+	DrawString(525, 50, "Ç›Ç¬ÇØÇÈÉQÅ[ÉÄ", 0xffff00, 0);
 
 	SetFontSize(60);
 	DrawString(850, 300, "START", 0xffffff, 0);
