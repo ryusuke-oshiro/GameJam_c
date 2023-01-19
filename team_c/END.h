@@ -3,7 +3,7 @@
 class END {
 public:
 	int count;
-	int endwaittime;
+	int endWaitTime;
 	int endPosY;
 	
 public:
