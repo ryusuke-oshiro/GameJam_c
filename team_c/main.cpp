@@ -133,19 +133,18 @@ int LoadSounds()
 	// ゲームBGMの読込
 	if ((gamemain.Game_bgm = LoadSoundMem("sounds/BGM/どた☆ばたコミック！.mp3")) == -1) return -1;
 	// ゲームクリアSEの読込
-	if ((gamemain.GameClear_se = LoadSoundMem("sounds/SE/clear.mp3")) == -1) return -1;
+	if ((sn.GameClear_se = LoadSoundMem("sounds/SE/clear.mp3")) == -1) return -1;
 	// ゲームオーバーSEの読込
-	if ((gamemain.GameOver_se = LoadSoundMem("sounds/SE/gameover03.mp3")) == -1) return -1;
+	if ((sn.GameOver_se = LoadSoundMem("sounds/SE/gameover03.mp3")) == -1) return -1;
 
 	// タイトルSEの読込
 	if ((title.SE1 = LoadSoundMem("sounds/SE/button_a.mp3")) == -1) return -1;
 	// SE1の読込
 	if ((sn.SE2 = LoadSoundMem("sounds/SE/sn.mp3")) == -1) return -1;
 
-
 	// SEの音量調整
-	ChangeVolumeSoundMem(1000, gamemain.GameClear_se);
-	ChangeVolumeSoundMem(1000, gamemain.GameOver_se);
+	ChangeVolumeSoundMem(1000, sn.GameClear_se);
+	ChangeVolumeSoundMem(1000, sn.GameOver_se);
 	ChangeVolumeSoundMem(1000, title.SE1);
 	ChangeVolumeSoundMem(1000, sn.SE2);
 	return 0;

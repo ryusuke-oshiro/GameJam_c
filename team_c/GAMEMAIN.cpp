@@ -35,6 +35,7 @@ void GAMEMAIN::GameMain() {
 			sn.DrawSN();		//”š‘I‘ğ
 			break;
 		case 3:
+			StopSoundMem(Game_bgm);
 			g_GameState = 0;
 		default:
 			break;
