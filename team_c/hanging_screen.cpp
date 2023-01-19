@@ -77,9 +77,7 @@ void hanging_screen::DrawCurtain() {
 				}
 			}
 			if (flg == TRUE) {
-				if (gamemain.DownCurtain() == true) {
-					fhase_flg = true;
-				}
+				fhase_flg = true;
 				if (input.Buttons[12] == 1 && fhase_flg == true) {
 					fhase_flg = FALSE;
 					flg = FALSE;
@@ -121,6 +119,7 @@ void hanging_screen::DrawCurtain() {
 
 		if (sn.Get_answer() == TRUE) {		//成功してたら
 			if (flg == TRUE) {
+				sn.Set_st_flg(FALSE);
 				if (gamemain.DownCurtain() == true) {
 					DispLevelflg = TRUE;
 					fhase_flg = true;
@@ -130,7 +129,6 @@ void hanging_screen::DrawCurtain() {
 						DispLevelflg = FALSE;
 						fhase_flg = FALSE;
 						flg = FALSE;
-						sn.Set_st_flg(FALSE);
 						si.Set_DispCount(si.Get_Level());	//ステージレベルから表示個数をきめる
 						gamemain.Set_phase(1);
 					}
@@ -146,9 +144,7 @@ void hanging_screen::DrawCurtain() {
 		}
 		if(sn.Get_answer()==FALSE){			//失敗してたら
 			if (flg == TRUE) {
-				if (gamemain.DownCurtain() == true) {
-					fhase_flg = true;
-				}
+				fhase_flg = true;
 				if (input.Buttons[12] == 1 && fhase_flg == true) {	//ボタン待ち
 					fhase_flg = FALSE;
 					flg = FALSE;

@@ -58,7 +58,7 @@ void GAMEMAIN::GameMain() {
 			}
 		}
 		if (sn.Get_answer() == FALSE) {
-			DrawFormatString(640, 360 - 200, 0xffffff, "GAME OVER", si.Get_Answer());	//白文字
+			DrawFormatString(640, 360 - 200, 0xffffff, "GAME OVER\nAボタンでタイトルに戻る");	//白文字
 		}
 	}
 	if (hs.Get_clear_flg() == TRUE) {
