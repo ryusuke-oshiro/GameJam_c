@@ -123,6 +123,7 @@ int LoadImages()
 	if ((title.Title_image = LoadGraph("images/Title.png")) == -1) return -1;
 	if ((end.endImages = LoadGraph("images/BackGround02.png")) == -1) return -1;
 	if ((hs.GameStart_image = LoadGraph("images/GameStart.png")) == -1) return -1;
+	if ((help.Help_image = LoadGraph("images/Help.png")) == -1) return -1;
 	return 0;
 }
 
