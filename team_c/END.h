@@ -3,6 +3,9 @@
 class END {
 public:
 	int count;
+	int endwaittime;
+	int endPosY;
+	
 public:
 	END();
 	void DrawEnd();
