@@ -1,6 +1,6 @@
 #include"TITLE.h"
 #include"Common.h"
-
+#include"select_number.h"
 TITLE title;
 
 TITLE::TITLE() {
@@ -12,7 +12,7 @@ TITLE::TITLE() {
 
 void TITLE::DrawTitle() {
 	// タイトルBGM
-	PlaySoundMem(Title_bgm, DX_PLAYTYPE_BACK, FALSE);
+	PlaySoundMem(Title_bgm, DX_PLAYTYPE_LOOP, FALSE);
 	DrawGraph(0, 0, Title_image, FALSE);
 
 	static int menuNo = 0;
@@ -35,6 +35,7 @@ void TITLE::DrawTitle() {
 		StopSoundMem(Title_bgm);
 		// タイトルSE
 		PlaySoundMem(SE1, DX_PLAYTYPE_BACK);
+		//PlaySoundMem(sn.GameClear_se, DX_PLAYTYPE_BACK, FALSE);
 		Button_flg = TRUE;
 		switch (menuNo) {
 		case 0:
