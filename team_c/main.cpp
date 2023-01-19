@@ -93,7 +93,7 @@ void FpsTimeFanction() {
 	else
 		FpsTime_i++;//現在何周目かカウント
 	if (Fps != 0)
-		DrawFormatString(1200, 700, color_white, "FPS %.1f", Fps); //fpsを表示
+		DrawFormatString(1150, 700, color_white, "FPS %.1f", Fps); //fpsを表示
 	return;
 }
 
@@ -112,7 +112,7 @@ void GameInit(void) {
 
 int LoadImages()
 {
-	if ((si.BackGround_img = LoadGraph("images/BackGround01.png")) == -1)return -1;
+	if ((si.BackGround_image = LoadGraph("images/BackGround01.png")) == -1)return -1;
 	if ((si.DispImage[0] = LoadGraph("images/chara01.png")) == -1) return -1;
 	if ((si.DispImage[1] = LoadGraph("images/chara02.png")) == -1) return -1;
 	if ((si.DispImage[2] = LoadGraph("images/chara03.png")) == -1) return -1;
@@ -120,6 +120,7 @@ int LoadImages()
 	if ((si.DispImage[4] = LoadGraph("images/chara05.png")) == -1) return -1;
 	if ((si.DispImage[5] = LoadGraph("images/chara06.png")) == -1) return -1;
 	if ((gamemain.Curtain_image = LoadGraph("images/Curtain.png")) == -1)return -1;
+	if ((title.Title_image = LoadGraph("images/Title.png")) == -1) return -1;
 	return 0;
 }
 

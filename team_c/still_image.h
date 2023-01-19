@@ -15,7 +15,7 @@ public:
 	int DispImage[6];	//各イメージ
 	int DispTargetPos[5][3];	//ターゲットのｘ座標、ｙ座標、反転フラグ
 	int DispElsePos[40][4];		//その他	のｘ座標、ｙ座標、反転フラグ、DispImageの要素数
-	int BackGround_img;
+	int BackGround_image;
 public:
 	still_image();
 	void Init();

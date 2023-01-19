@@ -5,9 +5,12 @@ TITLE title;
 
 TITLE::TITLE() {
 	x = 0;
+	Title_image = 0;
 }
 
 void TITLE::DrawTitle() {
+	DrawGraph(0, 0, Title_image, FALSE);
+
 	static int menuNo = 0;
 	int posY;
 
@@ -28,7 +31,7 @@ void TITLE::DrawTitle() {
 		Button_flg = TRUE;
 		switch (menuNo) {
 		case 0:
-			g_GameState = 4;
+			g_GameState = 2;
 			break;
 		case 1:
 			g_GameState = 1;
@@ -42,16 +45,17 @@ void TITLE::DrawTitle() {
 
 
 	posY = menuNo * 100;
-	DrawTriangle(510, 310 + posY, 540, 330 + posY, 510, 350 + posY, 0xffffff, TRUE);
+	DrawTriangle(810, 310 + posY, 840, 330 + posY, 810, 350 + posY, 0xffffff, TRUE);
 
 	SetFontSize(150);
-	DrawString(500, 50, "TITLE", 0xffffff, 0);
+	DrawString(725, 50, "TITLE", 0xffffff, 0);
 
 	SetFontSize(60);
-	DrawString(600, 300, "START", 0xffffff, 0);
-	DrawString(600, 400, "HELP", 0xffffff, 0);
-	DrawString(600, 500, "END", 0xffffff, 0);
+	DrawString(850, 300, "START", 0xffffff, 0);
+	DrawString(850, 400, "HELP", 0xffffff, 0);
+	DrawString(850, 500, "END", 0xffffff, 0);
 
-	DrawFormatString(300, 600, 0xffffff, "HIGH SCORE:%d", menuNo);
+	/*DrawFormatString(300, 600, 0xffffff, "HIGH SCORE:%d", menuNo);*/
 
+	SetFontSize(20); //FPSÇÃï\é¶Ç™Ç≈Ç©Ç≠Ç»ÇÈÇÃÇ≈èCê≥
 }

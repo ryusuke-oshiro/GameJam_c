@@ -21,7 +21,7 @@ still_image::still_image() {
 	DispImage[3] = 0;
 	DispImage[4] = 0;
 	DispImage[5] = 0;
-	BackGround_img = 0;
+	BackGround_image = 0;
 	/*--------‚±‚±‚É‰æ‘œ‚ğƒ[ƒh‚·‚é-------*/
 	InitPos();
 }
@@ -52,7 +52,7 @@ void still_image::DrawImage() {
 		gamemain.DownCurtain();
 	}
 
-	DrawGraph(0, 0, BackGround_img, FALSE);
+	DrawGraph(0, 0, BackGround_image, FALSE);
 	
 	//‚±‚±‚É§ŒÀŠÔ•\¦
 

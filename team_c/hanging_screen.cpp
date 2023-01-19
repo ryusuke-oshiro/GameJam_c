@@ -51,7 +51,7 @@ void hanging_screen::DrawCurtain() {
 		}
 
 		if (sn.Get_answer() == FALSE) {		//ƒŒƒxƒ‹‚P‚ÅŽ¸”s‚µ‚Ä—ˆ‚½Žž
-			DrawGraph(0, 0, si.BackGround_img, FALSE);
+			DrawGraph(0, 0, si.BackGround_image, FALSE);
 			for (int i = 0; i < si.DispTargetCount; i++) {
 				DrawExtendGraph(si.DispTargetPos[i][0] - (CHARA_SIZE / 2), si.DispTargetPos[i][1] - (CHARA_SIZE / 2), si.DispTargetPos[i][0] + (CHARA_SIZE / 2), si.DispTargetPos[i][1] + (CHARA_SIZE / 2), si.DispImage[0], TRUE);
 			}
@@ -93,7 +93,7 @@ void hanging_screen::DrawCurtain() {
 		SetFontSize(24);
 		
 		
-		DrawGraph(0, 0, si.BackGround_img, FALSE);
+		DrawGraph(0, 0, si.BackGround_image, FALSE);
 		for (int i = 0; i < si.DispTargetCount; i++) {
 			DrawExtendGraph(si.DispTargetPos[i][0] - (CHARA_SIZE / 2), si.DispTargetPos[i][1] - (CHARA_SIZE / 2), si.DispTargetPos[i][0] + (CHARA_SIZE / 2), si.DispTargetPos[i][1] + (CHARA_SIZE / 2), si.DispImage[0], TRUE);
 		}
