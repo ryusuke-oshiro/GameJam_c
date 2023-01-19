@@ -51,9 +51,9 @@ void TITLE::DrawTitle() {
 	DrawString(525, 50, "Ç›Ç¬ÇØÇÈÉQÅ[ÉÄ", 0xffff00, 0);
 
 	SetFontSize(60);
-	DrawString(850, 300, "START", 0xffffff, 0);
-	DrawString(850, 400, "HELP", 0xffffff, 0);
-	DrawString(850, 500, "END", 0xffffff, 0);
+	DrawString(850, 300, "START", 0x0000ff, 0);
+	DrawString(850, 400, "HELP", 0x0000ff, 0);
+	DrawString(850, 500, "END", 0x0000ff, 0);
 
 	/*DrawFormatString(300, 600, 0xffffff, "HIGH SCORE:%d", menuNo);*/
 
