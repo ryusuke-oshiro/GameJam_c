@@ -25,6 +25,7 @@ void HELP::DrawHelp() {
 	DrawString(25, 450, "A", 0x32cd32, 0);
 	DrawString(45, 450, "ボタンで決定", 0x00bfff, 0);
 	DrawString(15, 490, "↑十字キー,↓十字キーで操作", 0x00bfff, 0);
+	DrawString(30, 535, "BACKボタンで終了", 0x00bfff, 0);
 
 	//文字の点滅
 	if (++HelpWaitTime < 30) {
