@@ -15,6 +15,8 @@ hanging_screen::hanging_screen() {
 	Circle_flg = TRUE;
 	Clear_flg = FALSE;
 	GameStart_image = 0;
+	Chicken_se1 = 0;
+	Chicken_se3 = 0;
 }
 
 void hanging_screen::Init() {
@@ -26,19 +28,20 @@ void hanging_screen::Init() {
 	levelup_count = 0;
 	flg = FALSE;
 	Circle_flg = TRUE;
+	Chicken_se1 = 0;
+	Chicken_se2 = 0;
+	Chicken_se3 = 0;
 }
 
 void hanging_screen::DrawCurtain() {
-
-	if (si.Get_Level() == 1) {	
+	if (si.Get_Level() == 1) {
 		DrawGraph(0, 0, GameStart_image, FALSE);
 
 		if (sn.Get_answer() == TRUE) {		//タイトルからレベル１で来た時
 			Count++;
-			//SetFontSize(24);
-			//DrawFormatString(Pos_x, Pos_y, 0xffffff, "[ニワトリ]を探そう ！");	//白文字
 
-			if (120 < Count) {
+			if (180 < Count) {
+				StopSoundMem(Chicken_se2);
 				if (gamemain.DownCurtain() == true) {
 					DispLevelflg = TRUE;
 					fhase_flg = TRUE;
@@ -67,7 +70,7 @@ void hanging_screen::DrawCurtain() {
 			}
 			if (Circle_flg == TRUE) {
 				for (int i = 0; i < si.DispTargetCount; i++) {
-					DrawCircle(si.DispTargetPos[i][0], si.DispTargetPos[i][1] + gamemain.Get_CPos_y(), 
+					DrawCircle(si.DispTargetPos[i][0] - 5, si.DispTargetPos[i][1] + gamemain.Get_CPos_y() + 3 ,
 						CHARA_SIZE / 2, 0xff0000, FALSE,TRUE);
 				}
 			}
@@ -96,7 +99,7 @@ void hanging_screen::DrawCurtain() {
 	}
 
 	if(si.Get_Level() != 1){	//レベル１以外できた時
-		SetFontSize(24);
+		/*SetFontSize(24);*/
 		
 		
 		DrawGraph(0, 0 + gamemain.Get_CPos_y(), si.BackGround_image, FALSE);
@@ -113,7 +116,7 @@ void hanging_screen::DrawCurtain() {
 		}
 		if (Circle_flg == TRUE) {
 			for (int i = 0; i < si.DispTargetCount; i++) {
-				DrawCircle(si.DispTargetPos[i][0], si.DispTargetPos[i][1] + gamemain.Get_CPos_y(), 
+				DrawCircle(si.DispTargetPos[i][0] - 5, si.DispTargetPos[i][1] + gamemain.Get_CPos_y() + 3 ,
 					CHARA_SIZE / 2, 0xff0000, FALSE, TRUE);
 			}
 		}

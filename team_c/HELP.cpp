@@ -1,4 +1,5 @@
 #include"HELP.h"
+#include"GAMEMAIN.h"
 #include"Common.h"
 
 HELP help;
@@ -14,8 +15,7 @@ void HELP::DrawHelp() {
 		Button_flg = FALSE;
 	}
 
-	SetFontSize(25);
-	DrawString(450, 680, "--- A‚ð‰Ÿ‚µ‚Äƒ^ƒCƒgƒ‹‚É–ß‚é ---", 0xffffff, 0);
+	DrawGraph(0, 0, gamemain.ATitle_image, TRUE);
 
 
 	if (input.Buttons[12] == 1 && Button_flg == FALSE) {

@@ -15,6 +15,13 @@ public:
 	int Game_bgm;
 	int GameClear_se;
 	int GameOver_se;
+	int Chicken_se2;
+	int Good_image;
+	int GameOver_image;
+	int ATitle_image;
+	int Clear_image;
+	int Button_image1;
+	int Button_image2;
 public:
 	GAMEMAIN();
 	int UpCurtain();

@@ -32,13 +32,13 @@ int WINAPI WinMain(_In_ HINSTANCE hInssance, _In_opt_ HINSTANCE
 	hPrevInstance, _In_ LPSTR IpCmdLine, _In_ int nCmdShow)
 {
 
-	SetMainWindowText("ニワトリ大脱走");		//タイトルを設定
+	SetMainWindowText("ニワトリさがし");		//タイトルを設定
 
 	ChangeWindowMode(TRUE);					//ウィンドウモードで起動
 
 	if (DxLib_Init() == -1)return -1;		//DXライブラリの初期化処理
 	
-	SetWindowText("ニワトリ大脱走");
+	SetWindowText("ニワトリさがし");
 	//SetWindowInitPosition(480, 600);
 	SetGraphMode(1280, 720, 32);
 	
@@ -120,6 +120,12 @@ int LoadImages()
 	if ((si.DispImage[4] = LoadGraph("images/chara05.png")) == -1) return -1;
 	if ((si.DispImage[5] = LoadGraph("images/chara06.png")) == -1) return -1;
 	if ((gamemain.Curtain_image = LoadGraph("images/Curtain.png")) == -1)return -1;
+	if ((gamemain.Good_image = LoadGraph("images/good.png")) == -1)return -1;
+	if ((gamemain.GameOver_image = LoadGraph("images/gameover.png")) == -1)return -1;
+	if ((gamemain.Clear_image = LoadGraph("images/Clear.png")) == -1)return -1;
+	if ((gamemain.ATitle_image = LoadGraph("images/A_Title.png")) == -1)return -1;
+	if ((gamemain.Button_image1 = LoadGraph("images/Button1.png")) == -1)return -1;
+	if ((gamemain.Button_image2 = LoadGraph("images/Button2.png")) == -1)return -1;
 	if ((title.Title_image = LoadGraph("images/Title.png")) == -1) return -1;
 	if ((end.endImages = LoadGraph("images/BackGround02.png")) == -1) return -1;
 	if ((hs.GameStart_image = LoadGraph("images/GameStart.png")) == -1) return -1;
@@ -137,6 +143,11 @@ int LoadSounds()
 	if ((sn.GameClear_se = LoadSoundMem("sounds/SE/clear.wav")) == -1) return -1;
 	// ゲームオーバーSEの読込
 	if ((sn.GameOver_se = LoadSoundMem("sounds/SE/gameover03.wav")) == -1) return -1;
+
+	//ニワトリの鳴き声の読み込み
+	if ((hs.Chicken_se1 = LoadSoundMem("sounds/SE/chicken1.wav")) == -1) return -1; //コケコッコー
+	if ((hs.Chicken_se2 = LoadSoundMem("sounds/SE/chicken2.wav")) == -1) return -1; //コッコ
+	if ((hs.Chicken_se3 = LoadSoundMem("sounds/SE/chicken3.wav")) == -1) return -1; //コケー
 
 	// タイトルSEの読込
 	if ((title.SE1 = LoadSoundMem("sounds/SE/button_a.wav")) == -1) return -1;

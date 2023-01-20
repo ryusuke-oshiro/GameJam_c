@@ -12,6 +12,12 @@ GAMEMAIN::GAMEMAIN() {
 	Game_bgm = 0;
 	GameClear_se = 0;
 	GameOver_se = 0;
+	Good_image = 0;
+	GameOver_image = 0;
+	ATitle_image = 0;
+	Clear_image = 0;
+	Button_image1 = 0;
+	Button_image2 = 0;
 }
 
 void GAMEMAIN::Init() {
@@ -41,38 +47,43 @@ void GAMEMAIN::GameMain() {
 			break;
 	}
 	//CPos_y = UpDownCount * 24;
+
 	DrawGraph(0, -720 + CPos_y, Curtain_image, TRUE);
 
 	if (hs.Get_DispLevelflg() == TRUE && si.Get_Level() <= 10) {
 		// ゲームBGM
 		if (CheckSoundMem(Game_bgm) == 0) {
-			PlaySoundMem(Game_bgm, DX_PLAYTYPE_BACK, TRUE);
+			PlaySoundMem(Game_bgm, DX_PLAYTYPE_LOOP);
 		}
 
-		DrawFormatString(600, 400, 0xff0000, "レベル[ %d ]", si.Get_Level());
-		DrawFormatString(600, 430, 0xff0000, "Aでスタート！");
+		DrawFormatString(470, 300, 0xffffff, "レベル  %d  ", si.Get_Level());
+		DrawFormatString(480, 380, 0xffffff, "Aでスタート！");
 	}
 	SetFontSize(64);
 	if (si.Get_TLtex() == TRUE) {
-		DrawFormatString(600, 100, 0xffffff, "のこり　%.2f秒！", si.Get_TL());
+		DrawFormatString(420, 100, 0xffffff, "のこり %.2f 秒！", si.Get_TL());
 	}
-	SetFontSize(24);
+	/*SetFontSize(64);*/
 	if (sn.Get_sn_flg() == TRUE) {
-		DrawFormatString(600, 360, 0xff0000, "GameMain::数を選ぶ");
-		DrawFormatString(600, 400, 0xff0000, "%d", sn.Get_number());
+		DrawFormatString(400, 220, 0xffffff, "見つけたニワトリ");
+		DrawFormatString(580, 380, 0xffffff, "%d  羽", sn.Get_number());
 	}
 
 
 	if (sn.Get_sntext_flg() == TRUE) {
 		if (sn.Get_answer() == TRUE) {
-				DrawFormatString(600, 360 - 200, 0xffffff, "レベルアップ！");	//白文字
+			DrawGraph(0, 0, Good_image, TRUE);
+				//DrawFormatString(600, 360 - 200, 0xffffff, "レベルアップ！");	//白文字
 		}
 		if (sn.Get_answer() == FALSE) {
-			DrawFormatString(600, 360 - 200, 0xffffff, "GAME OVER\nAボタンでタイトルに戻る");	//白文字
+			DrawGraph(0, 0, GameOver_image, TRUE);
+			DrawGraph(0, -462, ATitle_image, TRUE);
+			//DrawFormatString(600, 360 - 200, 0xffffff, "GAME OVER\nAボタンでタイトルに戻る");	//白文字
 		}
 	}
 	if (hs.Get_clear_flg() == TRUE) {
-		DrawFormatString(600, 360 - 200, 0xffffff, "全レベルクリア！Aボタンでタイトルに戻ります");	//白文字
+		PlaySoundMem(hs.Chicken_se1, DX_PLAYTYPE_BACK,TRUE);
+		DrawGraph(0, 0, Clear_image, TRUE);
 	}
 }
 

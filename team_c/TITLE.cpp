@@ -8,12 +8,14 @@ TITLE::TITLE() {
 	Title_image = 0;
 	Title_bgm = 0;
 	SE1 = 0;
+	Chicken_se2 = 0;
 }
 
 void TITLE::DrawTitle() {
+
 	// タイトルBGM
 	if (CheckSoundMem(Title_bgm) == 0) {
-		PlaySoundMem(Title_bgm, DX_PLAYTYPE_BACK, TRUE);
+		PlaySoundMem(Title_bgm, DX_PLAYTYPE_LOOP);
 	}
 
 	DrawGraph(0, 0, Title_image, FALSE);
@@ -35,13 +37,16 @@ void TITLE::DrawTitle() {
 	}
 
 	if (input.Buttons[12] == 1 && Button_flg == FALSE) {
-		StopSoundMem(Title_bgm);
 		// タイトルSE
-		PlaySoundMem(SE1, DX_PLAYTYPE_BACK);
-		//PlaySoundMem(sn.GameClear_se, DX_PLAYTYPE_BACK, FALSE);
+		PlaySoundMem(SE1, DX_PLAYTYPE_BACK,TRUE);
+
 		Button_flg = TRUE;
 		switch (menuNo) {
 		case 0:
+			StopSoundMem(Title_bgm);
+			if (CheckSoundMem(hs.Chicken_se2) == 0) {
+				PlaySoundMem(hs.Chicken_se2, DX_PLAYTYPE_BACK, TRUE);
+			}
 			g_GameState = 2;
 			break;
 		case 1:
@@ -57,16 +62,4 @@ void TITLE::DrawTitle() {
 
 	posY = menuNo * 100;
 	DrawTriangle(810, 310 + posY, 840, 330 + posY, 810, 350 + posY, 0xffffff, TRUE);
-
-	SetFontSize(120);
-	DrawString(380, 80, "ニワトリ大脱走", 0xd57400, 0);
-
-	SetFontSize(60);
-	DrawString(850, 300, "START", 0xffffff, 0);
-	DrawString(850, 400, "HELP", 0xffffff, 0);
-	DrawString(850, 500, "END", 0xffffff, 0);
-
-	/*DrawFormatString(300, 600, 0xffffff, "HIGH SCORE:%d", menuNo);*/
-
-	SetFontSize(20); //FPSの表示がでかくなるので修正
 }

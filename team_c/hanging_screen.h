@@ -15,6 +15,9 @@ public:
 	int flg;
 	int Clear_flg;
 	int GameStart_image;
+	int Chicken_se1;
+	int Chicken_se2;
+	int Chicken_se3;
 public:
 	hanging_screen();
 	void Init();

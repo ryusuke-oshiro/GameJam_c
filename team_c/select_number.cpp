@@ -39,19 +39,21 @@ void select_number::DrawSN() {
 
 	if (input.Buttons[0] == 1 && B_flg == TRUE) {	//è„
 		B_flg = FALSE;
+
+		if (number <= 4) {
 			number += 1;
+		}
 			PlaySoundMem(SE2, DX_PLAYTYPE_BACK);	// SEÇÃí«â¡
-			if (number > 5) {
-				number = 5;
-			}
+			
 	}
 	if (input.Buttons[1] == 1 && B_flg == TRUE) {	//â∫
 		B_flg = FALSE;
+
+		if (number >= 1) {
 			number -= 1;
+		}
 			PlaySoundMem(SE2, DX_PLAYTYPE_BACK);	// SEÇÃí«â¡
-			if (number < 1) {
-				number = 1;
-			}
+			
 	}
 
 	if (input.Buttons[0] == 0 && input.Buttons[1] == 0 && input.Buttons[2] == 0 && input.Buttons[3] == 0) {

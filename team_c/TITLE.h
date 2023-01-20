@@ -6,6 +6,7 @@ public:
 	int Title_image;
 	int Title_bgm;
 	int SE1;
+	int Chicken_se2;
 public:
 	TITLE();
 	void DrawTitle();

@@ -27,7 +27,6 @@ void END::DrawEnd() {
 	DrawFormatString(620, 550 + endPosY, 0xf, "幸地　涼耶");
 
 
-
 	//タイム加算処理&終了
 	if (++endWaitTime > 2300)g_GameState = 99;
 
