@@ -44,9 +44,7 @@ void TITLE::DrawTitle() {
 		switch (menuNo) {
 		case 0:
 			StopSoundMem(Title_bgm);
-			if (CheckSoundMem(hs.Chicken_se2) == 0) {
-				PlaySoundMem(hs.Chicken_se2, DX_PLAYTYPE_BACK, TRUE);
-			}
+			PlaySoundMem(hs.Chicken_se2, DX_PLAYTYPE_BACK, TRUE);
 			g_GameState = 2;
 			break;
 		case 1:

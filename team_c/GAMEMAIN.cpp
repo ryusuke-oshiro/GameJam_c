@@ -15,6 +15,7 @@ GAMEMAIN::GAMEMAIN() {
 	Good_image = 0;
 	GameOver_image = 0;
 	ATitle_image = 0;
+	AStart_image = 0;
 	Clear_image = 0;
 	Button_image1 = 0;
 	Button_image2 = 0;
@@ -56,8 +57,8 @@ void GAMEMAIN::GameMain() {
 			PlaySoundMem(Game_bgm, DX_PLAYTYPE_LOOP);
 		}
 
-		DrawFormatString(470, 300, 0xffffff, "レベル  %d  ", si.Get_Level());
-		DrawFormatString(480, 380, 0xffffff, "Aでスタート！");
+		DrawFormatString(500, 300, 0xffffff, "レベル  %d  ", si.Get_Level());
+		DrawGraph(510, 370, AStart_image, TRUE);
 	}
 	SetFontSize(64);
 	if (si.Get_TLtex() == TRUE) {
@@ -77,12 +78,15 @@ void GAMEMAIN::GameMain() {
 		}
 		if (sn.Get_answer() == FALSE) {
 			DrawGraph(0, 0, GameOver_image, TRUE);
-			DrawGraph(0, -462, ATitle_image, TRUE);
+			
 			//DrawFormatString(600, 360 - 200, 0xffffff, "GAME OVER\nAボタンでタイトルに戻る");	//白文字
 		}
 	}
 	if (hs.Get_clear_flg() == TRUE) {
-		PlaySoundMem(hs.Chicken_se1, DX_PLAYTYPE_BACK,TRUE);
+		
+		/*if (CheckSoundMem(hs.Chicken_se1) == 1) {
+			StopSoundMem(hs.Chicken_se1);
+		}*/
 		DrawGraph(0, 0, Clear_image, TRUE);
 	}
 }

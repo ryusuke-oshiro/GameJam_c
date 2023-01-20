@@ -18,6 +18,7 @@ public:
 	int Chicken_se1;
 	int Chicken_se2;
 	int Chicken_se3;
+	int soundflg;
 public:
 	hanging_screen();
 	void Init();

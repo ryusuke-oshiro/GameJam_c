@@ -15,7 +15,7 @@ void HELP::DrawHelp() {
 		Button_flg = FALSE;
 	}
 
-	DrawGraph(0, 0, gamemain.ATitle_image, TRUE);
+	DrawGraph(880, 640, gamemain.ATitle_image, TRUE);
 
 
 	if (input.Buttons[12] == 1 && Button_flg == FALSE) {

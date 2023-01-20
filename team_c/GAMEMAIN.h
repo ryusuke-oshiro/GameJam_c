@@ -19,6 +19,7 @@ public:
 	int Good_image;
 	int GameOver_image;
 	int ATitle_image;
+	int AStart_image;
 	int Clear_image;
 	int Button_image1;
 	int Button_image2;

@@ -16,7 +16,9 @@ hanging_screen::hanging_screen() {
 	Clear_flg = FALSE;
 	GameStart_image = 0;
 	Chicken_se1 = 0;
+	Chicken_se2 = 0;
 	Chicken_se3 = 0;
+	soundflg = FALSE;
 }
 
 void hanging_screen::Init() {
@@ -28,21 +30,19 @@ void hanging_screen::Init() {
 	levelup_count = 0;
 	flg = FALSE;
 	Circle_flg = TRUE;
-	Chicken_se1 = 0;
-	Chicken_se2 = 0;
-	Chicken_se3 = 0;
+	soundflg = FALSE;
 }
 
 void hanging_screen::DrawCurtain() {
 	if (si.Get_Level() == 1) {
-		DrawGraph(0, 0, GameStart_image, FALSE);
 
+		DrawGraph(0, 0, GameStart_image, FALSE);
 		if (sn.Get_answer() == TRUE) {		//タイトルからレベル１で来た時
 			Count++;
 
 			if (180 < Count) {
-				StopSoundMem(Chicken_se2);
 				if (gamemain.DownCurtain() == true) {
+					StopSoundMem(hs.Chicken_se2);
 					DispLevelflg = TRUE;
 					fhase_flg = TRUE;
 				}
@@ -89,6 +89,7 @@ void hanging_screen::DrawCurtain() {
 			}
 			if (flg == TRUE) {
 				fhase_flg = true;
+				DrawGraph(880, 178, gamemain.ATitle_image, TRUE);
 				if (input.Buttons[12] == 1 && fhase_flg == true) {
 					fhase_flg = FALSE;
 					flg = FALSE;
@@ -152,6 +153,10 @@ void hanging_screen::DrawCurtain() {
 				}
 				if (10 < si.Get_Level()) {
 					Clear_flg = TRUE;
+					if (CheckSoundMem(hs.Chicken_se1) == 0 && soundflg == FALSE) {
+						PlaySoundMem(hs.Chicken_se1, DX_PLAYTYPE_BACK, TRUE);
+						soundflg = TRUE;
+					}
 					if (input.Buttons[12] == 1 && fhase_flg == true) {
 						Clear_flg = FALSE;
 						gamemain.Set_phase(3);
@@ -162,6 +167,7 @@ void hanging_screen::DrawCurtain() {
 		if(sn.Get_answer()==FALSE){			//失敗してたら
 			if (flg == TRUE) {
 				fhase_flg = true;
+				DrawGraph(880, 178, gamemain.ATitle_image, TRUE);
 				if (input.Buttons[12] == 1 && fhase_flg == true) {	//ボタン待ち
 					fhase_flg = FALSE;
 					flg = FALSE;

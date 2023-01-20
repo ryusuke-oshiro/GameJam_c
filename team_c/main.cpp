@@ -124,6 +124,7 @@ int LoadImages()
 	if ((gamemain.GameOver_image = LoadGraph("images/gameover.png")) == -1)return -1;
 	if ((gamemain.Clear_image = LoadGraph("images/Clear.png")) == -1)return -1;
 	if ((gamemain.ATitle_image = LoadGraph("images/A_Title.png")) == -1)return -1;
+	if ((gamemain.AStart_image = LoadGraph("images/A_Start.png")) == -1)return -1;
 	if ((gamemain.Button_image1 = LoadGraph("images/Button1.png")) == -1)return -1;
 	if ((gamemain.Button_image2 = LoadGraph("images/Button2.png")) == -1)return -1;
 	if ((title.Title_image = LoadGraph("images/Title.png")) == -1) return -1;
