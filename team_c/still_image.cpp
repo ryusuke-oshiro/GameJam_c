@@ -29,7 +29,7 @@ still_image::still_image() {
 void still_image::Init() {
 	Count = 0;
 	Answer = 0;
-	Level = 10;
+	Level = 1;
 	DispAllCount = 0;
 	DispTargetCount = 0;
 	TimeLimit = 3.0;
